@@ -17,16 +17,16 @@ public class CarBehaviour : MonoBehaviour
 	public enum OutputFunction{Linear, Gaussian};
 
 	[System.Serializable]
-	public struct DetectorData
+	public struct DetectorData //Holds info for each sensor
 	{
 		public DetectorScript detector;
 		public OutputedWheel wheel;
 		public OutputFunction function;
-		//future stuff down here
-		//public float minActivation;
-		//public float maxActivation;
-		//public float minValue;
-		//public float maxValue;
+
+		public float minActivation;
+		public float maxActivation;
+		public float minValue;
+		public float maxValue;
 	}
 
 	public DetectorData[] detectors;
@@ -44,18 +44,25 @@ public class CarBehaviour : MonoBehaviour
 
 
 		foreach (DetectorData data in detectors) {
+			if (data.detector.strength == 0) continue;	//If the sensor doesn't detect anything, it's ignored
 			if (data.wheel == OutputedWheel.Left) {
-				leftOutput += data.function == OutputFunction.Linear ? data.detector.GetLinearOutput() : data.detector.GetGaussianOutput(0.5f, 0.12f);
 				leftCount++;
+				if (data.function == OutputFunction.Linear)
+					leftOutput += data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
+				else
+					leftOutput += data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
 			} else {
-				rightOutput += data.function == OutputFunction.Linear ? data.detector.GetLinearOutput() : data.detector.GetGaussianOutput(0.5f, 0.12f);
 				rightCount++;
+				if (data.function == OutputFunction.Linear)
+					rightOutput += data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
+				else
+					rightOutput += data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
 			}
 		}
 
 		//Avoiding division by zero!
-		m_LeftWheelSpeed = leftCount > 0 ? leftOutput / leftCount * MaxSpeed : 0;
-		m_RightWheelSpeed = rightCount > 0 ? rightOutput / rightCount * MaxSpeed : 0;
+		m_LeftWheelSpeed = leftCount > 0 ? (leftOutput / leftCount) * MaxSpeed : 0;
+		m_RightWheelSpeed = rightCount > 0 ? (rightOutput / rightCount) * MaxSpeed : 0;
 
 			
 		//Calculate forward movement
