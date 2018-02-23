@@ -22,11 +22,14 @@ public class CarBehaviour : MonoBehaviour
 		public DetectorScript detector;
 		public OutputedWheel wheel;
 		public OutputFunction function;
+		public bool inhibitory;
 
 		public float minActivation;
 		public float maxActivation;
 		public float minValue;
 		public float maxValue;
+		[HideInInspector]
+		public int inhibitoryMultiplier;
 	}
 
 	public DetectorData[] detectors;
@@ -35,6 +38,11 @@ public class CarBehaviour : MonoBehaviour
 	{
 		m_Rigidbody = GetComponent<Rigidbody> ();
 		m_axleLength = (RR.transform.position - RL.transform.position).magnitude;
+		//TESTAR ESTA MERDA
+		for (int i = 0; i < detectors.Length; i++) {
+			
+			detectors[i].inhibitoryMultiplier = detectors[i].inhibitory == true ? -1 : 1;
+		}
 	}
 
 	void FixedUpdate ()
@@ -42,21 +50,20 @@ public class CarBehaviour : MonoBehaviour
 		float leftOutput = 0, rightOutput = 0;
 		int leftCount = 0, rightCount = 0;
 
-
 		foreach (DetectorData data in detectors) {
 			if (data.detector.strength == 0) continue;	//If the sensor doesn't detect anything, it's ignored
 			if (data.wheel == OutputedWheel.Left) {
 				leftCount++;
 				if (data.function == OutputFunction.Linear)
-					leftOutput += data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
+					leftOutput += data.inhibitoryMultiplier * data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
 				else
-					leftOutput += data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
+					leftOutput += data.inhibitoryMultiplier * data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
 			} else {
 				rightCount++;
 				if (data.function == OutputFunction.Linear)
-					rightOutput += data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
+					rightOutput += data.inhibitoryMultiplier * data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
 				else
-					rightOutput += data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
+					rightOutput += data.inhibitoryMultiplier * data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
 			}
 		}
 
