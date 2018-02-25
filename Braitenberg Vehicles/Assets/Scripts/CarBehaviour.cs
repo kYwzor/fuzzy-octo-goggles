@@ -45,23 +45,18 @@ public class CarBehaviour : MonoBehaviour
 		int leftCount = 0, rightCount = 0;
 
 		foreach (DetectorData data in detectors) {
+			if (data.function == OutputFunction.Linear)
+				aux = data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.Excitatory);
+			else
+				aux = data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.Excitatory);
+			
 			if (data.wheel == OutputedWheel.Left) {
 				leftCount++;
-				if (data.function == OutputFunction.Linear)
-					aux = data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
-				else
-					aux = data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
-
-				leftOutput += data.type == ConnectionType.Excitatory ? aux : 1 - aux;
-
+				leftOutput += aux;
+				
 			} else {
 				rightCount++;
-				if (data.function == OutputFunction.Linear)
-					aux = data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue);
-				else
-					aux =  data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue);
-
-				rightOutput += data.type == ConnectionType.Excitatory ? aux : 1 - aux;
+				rightOutput += aux;
 			}
 		}
 

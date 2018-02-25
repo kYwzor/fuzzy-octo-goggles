@@ -17,19 +17,23 @@ public abstract class DetectorScript : MonoBehaviour {
 	}
 
 	// Get linear output value
-	public float GetLinearOutput(float minActivation, float maxActivation, float minValue, float maxValue)
+	public float GetLinearOutput(float minActivation, float maxActivation, float minValue, float maxValue, bool type)
 	{
 		if (strength < minActivation || strength > maxActivation)
-			strength = 0;
-		return Mathf.Clamp(strength, minValue, maxValue);
+			return minValue;
+		
+		return Mathf.Clamp(type ? strength : 1 - strength, minValue, maxValue);
 	}
 
 	// Get gaussian output value
-	public float GetGaussianOutput(double mu, double sigma, float minActivation, float maxActivation, float minValue, float maxValue)
+	public float GetGaussianOutput(double mu, double sigma, float minActivation, float maxActivation, float minValue, float maxValue, bool type)
 	{
 		if (strength < minActivation || strength > maxActivation)
-			strength = 0;
-		return Mathf.Clamp((float)(Math.Exp (-Math.Pow ((strength - mu), 2) / (2 * Math.Pow (sigma, 2)))), minValue, maxValue);
+			return minValue;
+		
+		float gauss = (float)(Math.Exp (-Math.Pow ((strength - mu), 2) / (2 * Math.Pow (sigma, 2))));
+
+		return Mathf.Clamp(type ? gauss : 1 - gauss, minValue, maxValue);
 	}
 
 	// Returns all objects tagged as tag. The sensor angle is not taken into account.
