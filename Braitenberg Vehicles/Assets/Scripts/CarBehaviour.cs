@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CarBehaviour : MonoBehaviour
 {
@@ -12,9 +11,13 @@ public class CarBehaviour : MonoBehaviour
 	public float m_RightWheelSpeed;
 	private float m_axleLength;
 
+	public bool debugLines;
+
 	public enum OutputedWheel{Left,	Right};
 	public enum OutputFunction{Linear, Gaussian};
 	public enum ConnectionType{Excitatory, Inhibitory};
+
+	public bool drawLines; 
 
 	[System.Serializable]
 	public struct DetectorData //Holds info for each sensor
