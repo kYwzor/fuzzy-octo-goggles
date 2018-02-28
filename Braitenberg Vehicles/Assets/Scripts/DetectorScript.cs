@@ -20,6 +20,7 @@ public abstract class DetectorScript : MonoBehaviour {
 	public float GetLinearOutput(float minActivation, float maxActivation, float minValue, float maxValue, bool type)
 	{
 		if (strength < minActivation || strength > maxActivation)
+			//Debug.Log("fegrthy");
 			return minValue;
 		
 		return Mathf.Clamp(type ? strength : 1 - strength, minValue, maxValue);

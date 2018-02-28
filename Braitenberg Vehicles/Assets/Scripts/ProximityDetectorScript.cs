@@ -19,7 +19,7 @@ public class ProximityDetectorScript : DetectorScript {
 
 		//Cycle below finds the minimum distance to a block
 		foreach (GameObject block in blocks) {
-			current = (transform.position - block.transform.position).sqrMagnitude;
+			current = (transform.position - block.transform.position).magnitude;
 			min = Mathf.Min (min, current);
 		}
 
