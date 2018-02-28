@@ -17,8 +17,6 @@ public class CarBehaviour : MonoBehaviour
 	public enum OutputFunction{Linear, Gaussian};
 	public enum ConnectionType{Excitatory, Inhibitory};
 
-	public bool drawLines; 
-
 	[System.Serializable]
 	public struct DetectorData //Holds info for each sensor
 	{
