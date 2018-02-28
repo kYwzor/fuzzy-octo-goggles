@@ -21,8 +21,11 @@ public class CarBehaviour : MonoBehaviour
 	{
 		public DetectorScript detector;
 		public OutputedWheel wheel;
-		public OutputFunction function;
 		public ConnectionType type;
+		public OutputFunction function;
+
+		public float gaussianAverage;
+		public float gaussianStandardDeviation;
 
 		public float minActivation;
 		public float maxActivation;
@@ -48,7 +51,7 @@ public class CarBehaviour : MonoBehaviour
 			if (data.function == OutputFunction.Linear)
 				aux = data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.Excitatory);
 			else
-				aux = data.detector.GetGaussianOutput (0.5f, 0.12f, data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.Excitatory);
+				aux = data.detector.GetGaussianOutput (data.gaussianAverage, data.gaussianStandardDeviation, data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.Excitatory);
 			
 			if (data.wheel == OutputedWheel.Left) {
 				leftCount++;
