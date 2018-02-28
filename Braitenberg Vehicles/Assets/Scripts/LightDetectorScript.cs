@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Linq;
 using System;
 
 public class LightDetectorScript : DetectorScript {
@@ -19,6 +18,9 @@ public class LightDetectorScript : DetectorScript {
 		foreach (GameObject light in lights) {
 			float r = light.GetComponent<Light> ().range;
 			strength += 1.0f / ((transform.position - light.transform.position).sqrMagnitude / r + 1);
+			if (car.debugLines) {
+				Debug.DrawLine (transform.position, light.transform.position);
+			}
 		}
 
 		if (numObjects > 0) {
