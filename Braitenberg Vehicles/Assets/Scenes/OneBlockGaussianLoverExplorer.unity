@@ -296,22 +296,22 @@ Prefab:
     - target: {fileID: 114362611062291100, guid: 04a66caae62d0c245a2041ebddd7190d,
         type: 2}
       propertyPath: detectors.Array.data[0].gaussianAverage
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 114362611062291100, guid: 04a66caae62d0c245a2041ebddd7190d,
         type: 2}
       propertyPath: detectors.Array.data[0].gaussianStandardDeviation
-      value: 0.24
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 114362611062291100, guid: 04a66caae62d0c245a2041ebddd7190d,
         type: 2}
       propertyPath: detectors.Array.data[1].gaussianAverage
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 114362611062291100, guid: 04a66caae62d0c245a2041ebddd7190d,
         type: 2}
       propertyPath: detectors.Array.data[1].gaussianStandardDeviation
-      value: 0.24
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 114362611062291100, guid: 04a66caae62d0c245a2041ebddd7190d,
         type: 2}

@@ -905,43 +905,48 @@ MonoBehaviour:
   RL: {fileID: 146920054873402508}
   m_LeftWheelSpeed: 0
   m_RightWheelSpeed: 0
+  debugLines: 0
   detectors:
   - detector: {fileID: 114648664797734104}
     wheel: 1
+    type: 0
     function: 0
-    inhibitory: 0
+    gaussianAverage: 0
+    gaussianStandardDeviation: 0
     minActivation: 0
     maxActivation: 1
     minValue: 0
     maxValue: 1
-    inhibitoryMultiplier: 0
   - detector: {fileID: 114299061110615000}
     wheel: 0
+    type: 0
     function: 0
-    inhibitory: 0
+    gaussianAverage: 0
+    gaussianStandardDeviation: 0
     minActivation: 0
     maxActivation: 1
     minValue: 0
     maxValue: 1
-    inhibitoryMultiplier: 0
   - detector: {fileID: 114860710463648472}
     wheel: 0
+    type: 0
     function: 0
-    inhibitory: 0
+    gaussianAverage: 0
+    gaussianStandardDeviation: 0
     minActivation: 0
     maxActivation: 1
     minValue: 0
     maxValue: 1
-    inhibitoryMultiplier: 0
   - detector: {fileID: 114225042909553498}
     wheel: 1
+    type: 0
     function: 0
-    inhibitory: 0
+    gaussianAverage: 0
+    gaussianStandardDeviation: 0
     minActivation: 0
     maxActivation: 1
     minValue: 0
     maxValue: 1
-    inhibitoryMultiplier: 0
 --- !u!114 &114860710463648472
 MonoBehaviour:
   m_ObjectHideFlags: 1
