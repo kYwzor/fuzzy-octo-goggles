@@ -31,11 +31,12 @@ public abstract class DetectorScript : MonoBehaviour {
 	// Get gaussian output value
 	public float GetGaussianOutput(double mu, double sigma, float minActivation, float maxActivation, float minValue, float maxValue, bool type)
 	{
+		Debug.Log (strength);
 		if (strength < minActivation || strength > maxActivation)
 			return minValue;
-		
-		float gauss = (float)(Math.Exp (-Math.Pow ((strength - mu), 2) / (2 * Math.Pow (sigma, 2))));
 
+		float gauss = (float)(Math.Exp (-Math.Pow ((strength - mu), 2) / (2 * Math.Pow (sigma, 2))));
+		Debug.Log (gauss);
 		return Mathf.Clamp(type ? gauss : 1 - gauss, minValue, maxValue);
 	}
 
