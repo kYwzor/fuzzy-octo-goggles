@@ -150,7 +150,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 452647299}
     m_Modifications:
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalPosition.x
@@ -166,15 +166,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalRotation.w
@@ -182,7 +182,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -280,7 +280,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1182547565}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -657,6 +658,11 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 405622, guid: 5d96f705d64a84afdbff31c21d1f0a9d, type: 2}
   m_PrefabInternal: {fileID: 920465967}
+--- !u!4 &1182547565 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 328965936}
 --- !u!1 &1494263211
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923775181
 GameObject:
