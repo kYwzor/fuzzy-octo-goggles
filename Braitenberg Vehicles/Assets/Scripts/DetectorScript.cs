@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Linq;
 using System;
 
 public abstract class DetectorScript : MonoBehaviour {
@@ -10,17 +9,20 @@ public abstract class DetectorScript : MonoBehaviour {
 	public float strength;
 	public int numObjects;
 
+	protected CarBehaviour car;
+
 	void Start () {
 		if (angle >= 360) {
 			useAngle = false;
 		}
+
+		car = transform.parent.parent.GetComponent<CarBehaviour>();
 	}
 
 	// Get linear output value
 	public float GetLinearOutput(float minActivation, float maxActivation, float minValue, float maxValue, bool type)
 	{
 		if (strength < minActivation || strength > maxActivation)
-			//Debug.Log("fegrthy");
 			return minValue;
 		
 		return Mathf.Clamp(type ? strength : 1 - strength, minValue, maxValue);

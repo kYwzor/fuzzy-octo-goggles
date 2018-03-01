@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Linq;
 using System;
 
 public class ProximityDetectorScript : DetectorScript {
@@ -21,6 +20,15 @@ public class ProximityDetectorScript : DetectorScript {
 		foreach (GameObject block in blocks) {
 			current = (transform.position - block.transform.position).magnitude;
 			min = Mathf.Min (min, current);
+		}
+
+		if (car.debugLines) {
+			foreach (GameObject block in blocks) {
+				if (min == (transform.position - block.transform.position).magnitude) {
+					Debug.DrawLine (transform.position, block.transform.position);
+					break;
+				}
+			}
 		}
 
 		// I'm not sure what I should be doing here, trying to mimic light function
