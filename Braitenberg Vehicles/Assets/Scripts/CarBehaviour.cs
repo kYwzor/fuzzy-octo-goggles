@@ -17,7 +17,7 @@ public class CarBehaviour : MonoBehaviour
 	// Enums used for easy editing via interface
 	public enum OutputedWheel{Left,	Right};
 	public enum OutputFunction{Linear, Gaussian};
-	public enum ConnectionType{Excitatory, Inhibitory};
+	public enum ConnectionType{Excitatory, PureInhibitory, AlteredInhibitory};
 
 	[System.Serializable]
 	public struct DetectorData //Holds configurations for each sensor
@@ -54,17 +54,17 @@ public class CarBehaviour : MonoBehaviour
 		// Reads each sensors' values and configurations
 		foreach (DetectorData data in detectors) {
 			if (data.function == OutputFunction.Linear)
-				aux = data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.Excitatory);
+				aux = data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.AlteredInhibitory);
 			else
-				aux = data.detector.GetGaussianOutput (data.gaussianAverage, data.gaussianStandardDeviation, data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.Excitatory);
+				aux = data.detector.GetGaussianOutput (data.gaussianAverage, data.gaussianStandardDeviation, data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.AlteredInhibitory);
 			
 			if (data.wheel == OutputedWheel.Left) {
 				leftCount++;
-				leftOutput += aux;
+				leftOutput += data.type == ConnectionType.PureInhibitory ? 1 - aux : aux;
 				
 			} else {
 				rightCount++;
-				rightOutput += aux;
+				rightOutput += data.type == ConnectionType.PureInhibitory ? 1 - aux : aux;
 			}
 		}
 
