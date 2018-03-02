@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+// Subclass that detects light. Defines light-specific behaviour
 public class LightDetectorScript : DetectorScript {
 	void Update () {
 		GameObject[] lights;
@@ -15,6 +16,7 @@ public class LightDetectorScript : DetectorScript {
 		strength = 0;
 		numObjects = lights.Length;
 	
+		// Calculates the strength of every light found and draws a debug line to each of them
 		foreach (GameObject light in lights) {
 			float r = light.GetComponent<Light> ().range;
 			strength += 1.0f / ((transform.position - light.transform.position).sqrMagnitude / r + 1);
@@ -23,6 +25,7 @@ public class LightDetectorScript : DetectorScript {
 			}
 		}
 
+		// Averages the light strength
 		if (numObjects > 0) {
 			strength = strength / numObjects;
 		}

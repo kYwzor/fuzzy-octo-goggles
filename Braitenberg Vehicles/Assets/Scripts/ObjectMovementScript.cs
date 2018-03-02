@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Allows to move any assigned GameObject with arrows or WASD
 public class ObjectMovementScript : MonoBehaviour {
-	// Update is called once per frame
 	public GameObject controlledObject;
-	void Update () {
+	void FixedUpdate () {
 		float x = Input.GetAxis ("Horizontal");
 		float y = Input.GetAxis ("Vertical");
 		if (controlledObject != null)

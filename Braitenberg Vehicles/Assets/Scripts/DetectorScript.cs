@@ -2,6 +2,11 @@
 using System.Collections;
 using System;
 
+/* 
+ * Detector superclass. 
+ * Defines the behaviour of output functions and their possible configurations (thresholds, limits and mode)
+ * Finds objects within the angle defined on the editor 
+*/
 public abstract class DetectorScript : MonoBehaviour {
 	public float angle;
 	protected bool useAngle = true;
@@ -12,10 +17,12 @@ public abstract class DetectorScript : MonoBehaviour {
 	protected CarBehaviour car;
 
 	void Start () {
+		// If the angle is 360 or above a flag is activated to simplify the search function
 		if (angle >= 360) {
 			useAngle = false;
 		}
 
+		// We need to grab the car's script in order to draw debugging lines. Not needed otherwise
 		car = transform.parent.parent.GetComponent<CarBehaviour>();
 	}
 
