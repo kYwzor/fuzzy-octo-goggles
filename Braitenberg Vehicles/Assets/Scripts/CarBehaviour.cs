@@ -74,7 +74,9 @@ public class CarBehaviour : MonoBehaviour
 		Vector3 movement = transform.forward * targetSpeed * Time.deltaTime;
 
 		//Calculate turn degrees based on wheel speed
+		//Debug.Log("left:" + m_LeftWheelSpeed + "right:" + m_RightWheelSpeed);
 		float angVelocity = (m_LeftWheelSpeed - m_RightWheelSpeed) / m_axleLength * Mathf.Rad2Deg * Time.deltaTime;
+		//Debug.Log ("ang:" + angVelocity);
 		Quaternion turnRotation = Quaternion.Euler (0.0f, angVelocity, 0.0f);
 
 		//Apply to rigid body
