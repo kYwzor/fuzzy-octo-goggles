@@ -14,6 +14,7 @@ public class ProximityDetectorScript : DetectorScript {
 			blocks = GetAll ("Block");
 		}
 
+
 		numObjects = blocks.Length;		//not needed for anything, just for viewing on editor
 		min = Mathf.Infinity;	// We assume that the minimum is the highest possible value
 

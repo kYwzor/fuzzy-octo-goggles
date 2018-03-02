@@ -16,6 +16,7 @@ public abstract class DetectorScript : MonoBehaviour {
 
 	protected CarBehaviour car;
 
+
 	void Start () {
 		// If the angle is 360 or above a flag is activated to simplify the search function
 		if (angle >= 360) {

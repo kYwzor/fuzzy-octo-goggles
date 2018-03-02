@@ -12,3 +12,4 @@ public class ObjectMovementScript : MonoBehaviour {
 			controlledObject.transform.Translate(new Vector3(x, 0, y));
 	}
 }
+

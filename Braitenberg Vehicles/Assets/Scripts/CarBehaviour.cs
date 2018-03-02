@@ -39,6 +39,7 @@ public class CarBehaviour : MonoBehaviour
 
 	public DetectorData[] detectors;
 
+
 	void Start ()
 	{
 		m_Rigidbody = GetComponent<Rigidbody> ();
