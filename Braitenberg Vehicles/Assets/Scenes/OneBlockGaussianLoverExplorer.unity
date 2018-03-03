@@ -353,6 +353,16 @@ Prefab:
       propertyPath: angle
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 114362611062291100, guid: 04a66caae62d0c245a2041ebddd7190d,
+        type: 2}
+      propertyPath: detectors.Array.data[0].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362611062291100, guid: 04a66caae62d0c245a2041ebddd7190d,
+        type: 2}
+      propertyPath: detectors.Array.data[1].type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04a66caae62d0c245a2041ebddd7190d, type: 2}
   m_IsPrefabParent: 0
@@ -433,6 +443,16 @@ Prefab:
         type: 2}
       propertyPath: MaxSpeed
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484205141553370, guid: 14463b48b03678b4386f471ded5f4cfe,
+        type: 2}
+      propertyPath: detectors.Array.data[0].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484205141553370, guid: 14463b48b03678b4386f471ded5f4cfe,
+        type: 2}
+      propertyPath: detectors.Array.data[1].type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14463b48b03678b4386f471ded5f4cfe, type: 2}

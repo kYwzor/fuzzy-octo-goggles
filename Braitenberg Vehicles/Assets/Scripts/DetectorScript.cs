@@ -39,7 +39,6 @@ public abstract class DetectorScript : MonoBehaviour {
 	// Get gaussian output value
 	public float GetGaussianOutput(double mu, double sigma, float minActivation, float maxActivation, float minValue, float maxValue, bool altered)
 	{
-		Debug.Log (strength);
 		if (strength < minActivation || strength > maxActivation)
 			return minValue;
 
