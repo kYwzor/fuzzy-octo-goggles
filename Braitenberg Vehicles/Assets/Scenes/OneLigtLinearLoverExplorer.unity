@@ -330,12 +330,12 @@ Prefab:
     - target: {fileID: 114498142708686890, guid: ed6f22902226b9248827e1a494a12642,
         type: 2}
       propertyPath: detectors.Array.data[1].minActivation
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 114498142708686890, guid: ed6f22902226b9248827e1a494a12642,
         type: 2}
       propertyPath: detectors.Array.data[0].minActivation
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 114498142708686890, guid: ed6f22902226b9248827e1a494a12642,
         type: 2}
@@ -351,6 +351,16 @@ Prefab:
         type: 2}
       propertyPath: detectors.Array.data[1].minValue
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114498142708686890, guid: ed6f22902226b9248827e1a494a12642,
+        type: 2}
+      propertyPath: detectors.Array.data[0].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114498142708686890, guid: ed6f22902226b9248827e1a494a12642,
+        type: 2}
+      propertyPath: detectors.Array.data[1].type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed6f22902226b9248827e1a494a12642, type: 2}
