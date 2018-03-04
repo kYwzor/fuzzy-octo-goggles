@@ -218,7 +218,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 3.77
       objectReference: {fileID: 0}
     - target: {fileID: 4404574374999344, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalRotation.x
@@ -262,22 +262,22 @@ Prefab:
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[0].gaussianAverage
-      value: 0.245
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[0].gaussianStandardDeviation
-      value: 0.15
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[1].gaussianAverage
-      value: 0.245
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[1].gaussianStandardDeviation
-      value: 0.15
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
@@ -297,17 +297,17 @@ Prefab:
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[1].maxValue
-      value: 0.38
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114836454034912694, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: angle
-      value: 360
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 114035433145492926, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: angle
-      value: 360
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
@@ -347,11 +347,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4586822391448828, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4234832449755030, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.8
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
@@ -396,7 +396,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 405622, guid: 5d96f705d64a84afdbff31c21d1f0a9d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 405622, guid: 5d96f705d64a84afdbff31c21d1f0a9d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -450,7 +450,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 405622, guid: 5d96f705d64a84afdbff31c21d1f0a9d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 405622, guid: 5d96f705d64a84afdbff31c21d1f0a9d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -601,7 +601,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 50
+  m_Time: 5
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.2
