@@ -3,5 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockDeletionScript : MonoBehaviour {
-	// WIP
+	void OnTriggerEnter(Collider c){
+		Destroy (gameObject);
+	}
 }
