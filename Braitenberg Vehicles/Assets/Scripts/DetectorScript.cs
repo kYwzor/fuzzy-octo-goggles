@@ -14,7 +14,7 @@ public abstract class DetectorScript : MonoBehaviour {
 	public float strength;
 	public int numObjects;
 
-	protected CarBehaviour car;
+	protected CarBehaviour car;	// The car that this sensor is placed on
 
 
 	void Start () {

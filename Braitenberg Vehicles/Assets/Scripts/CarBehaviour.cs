@@ -20,7 +20,7 @@ public class CarBehaviour : MonoBehaviour
 	public enum ConnectionType{Excitatory, PureInhibitory, AlteredInhibitory};
 
 	[System.Serializable]
-	public struct DetectorData //Holds configurations for each sensor
+	public struct DetectorData // Holds configurations for each sensor
 	{
 		public DetectorScript detector;
 		public OutputedWheel wheel;
@@ -37,7 +37,7 @@ public class CarBehaviour : MonoBehaviour
 
 	}
 
-	public DetectorData[] detectors;
+	public DetectorData[] detectors;	// We allow an unlimited amount of detectors
 
 
 	void Start ()
@@ -51,7 +51,7 @@ public class CarBehaviour : MonoBehaviour
 		float leftOutput = 0, rightOutput = 0, aux;
 		int leftCount = 0, rightCount = 0;
 
-		// Reads each sensors' values and configurations
+		// Reads each sensors' outputs and configurations
 		foreach (DetectorData data in detectors) {
 			if (data.function == OutputFunction.Linear)
 				aux = data.detector.GetLinearOutput (data.minActivation, data.maxActivation, data.minValue, data.maxValue, data.type == ConnectionType.AlteredInhibitory);
@@ -68,20 +68,20 @@ public class CarBehaviour : MonoBehaviour
 			}
 		}
 
-		//Avoiding division by zero
+		// Calculates average while avoiding division by zero
 		m_LeftWheelSpeed = leftCount > 0 ? (leftOutput / leftCount) * MaxSpeed : 0;
 		m_RightWheelSpeed = rightCount > 0 ? (rightOutput / rightCount) * MaxSpeed : 0;
 
 			
-		//Calculate forward movement
+		// Calculate forward movement
 		float targetSpeed = (m_LeftWheelSpeed + m_RightWheelSpeed) / 2;
 		Vector3 movement = transform.forward * targetSpeed * Time.deltaTime;
 
-		//Calculate turn degrees based on wheel speed
+		// Calculate turn degrees based on wheel speed
 		float angVelocity = (m_LeftWheelSpeed - m_RightWheelSpeed) / m_axleLength * Mathf.Rad2Deg * Time.deltaTime;
 		Quaternion turnRotation = Quaternion.Euler (0.0f, angVelocity, 0.0f);
 
-		//Apply to rigid body
+		// Apply to rigid body
 		m_Rigidbody.MovePosition (m_Rigidbody.position + movement);
 		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation); 
 	}
