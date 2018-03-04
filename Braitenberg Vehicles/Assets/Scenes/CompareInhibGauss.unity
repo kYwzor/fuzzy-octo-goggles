@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -265,6 +265,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &814326649 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1649283213246876, guid: 421f475f08061254a9b776c1fc108ad4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1422556077}
+--- !u!96 &814326652
+TrailRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814326649}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 200
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 1, b: 0, a: 1}
+      key1: {r: 0, g: 1, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
 --- !u!1 &862631649
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,22 +769,22 @@ Prefab:
     - target: {fileID: 114035433145492926, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: angle
-      value: 180
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 114836454034912694, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: angle
-      value: 180
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[1].minValue
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[0].minValue
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
@@ -741,22 +833,22 @@ Prefab:
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[1].minActivation
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[0].minActivation
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[0].maxActivation
-      value: 0.9
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[1].maxActivation
-      value: 0.9
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
@@ -767,6 +859,11 @@ Prefab:
         type: 2}
       propertyPath: detectors.Array.data[0].maxValue
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
+        type: 2}
+      propertyPath: debugLines
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e1fb0d389e974a4a931d1081cea68ed, type: 2}
@@ -901,22 +998,22 @@ Prefab:
     - target: {fileID: 114171729464297200, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: angle
-      value: 180
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 114334523600365620, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: angle
-      value: 180
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: detectors.Array.data[0].minValue
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: detectors.Array.data[1].minValue
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
@@ -961,12 +1058,12 @@ Prefab:
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: detectors.Array.data[1].maxActivation
-      value: 0.9
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: detectors.Array.data[1].minActivation
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
@@ -976,12 +1073,12 @@ Prefab:
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: detectors.Array.data[0].minActivation
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: detectors.Array.data[0].maxActivation
-      value: 0.9
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
@@ -1000,6 +1097,11 @@ Prefab:
     - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
         type: 2}
       propertyPath: detectors.Array.data[1].wheel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637463897346140, guid: 421f475f08061254a9b776c1fc108ad4,
+        type: 2}
+      propertyPath: debugLines
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1070,6 +1172,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1721949086 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1531067976081228, guid: 4e1fb0d389e974a4a931d1081cea68ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1382195193}
+--- !u!96 &1721949089
+TrailRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1721949086}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 200
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
 --- !u!1 &1872200590
 GameObject:
   m_ObjectHideFlags: 0
