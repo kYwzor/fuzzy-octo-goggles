@@ -267,7 +267,7 @@ Prefab:
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[0].gaussianStandardDeviation
-      value: 0.12
+      value: 0.1175
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
@@ -277,7 +277,7 @@ Prefab:
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
       propertyPath: detectors.Array.data[1].gaussianStandardDeviation
-      value: 0.12
+      value: 0.1175
       objectReference: {fileID: 0}
     - target: {fileID: 114553285566956324, guid: 4e1fb0d389e974a4a931d1081cea68ed,
         type: 2}
