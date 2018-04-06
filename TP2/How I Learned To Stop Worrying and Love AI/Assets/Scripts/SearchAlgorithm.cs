@@ -164,7 +164,10 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	// These methods should be overriden on each specific search algorithm.
 	protected abstract void Begin ();
 	protected abstract void Step ();
+
 	//NOTE: You have to implement this method if your algorithm requires an heuristic
-	protected virtual int GetHeuristic() { return 0; }
+	protected virtual int GetHeuristic(Node currentNode) { 
+		return Mathf.Abs(targetNode.gridX - currentNode.gridX) + Mathf.Abs(targetNode.gridY - currentNode.gridY); 
+	}
 
 }

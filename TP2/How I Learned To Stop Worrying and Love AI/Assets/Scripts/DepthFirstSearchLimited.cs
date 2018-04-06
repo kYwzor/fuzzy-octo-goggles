@@ -33,7 +33,6 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
 				if (currentState.depth <= depthLimit) {
 					foreach (Node suc in GetNodeSucessors(currentState.node)) {
 						SearchState new_node = new SearchState (suc, suc.gCost + currentState.g, currentState);
-						Debug.Log (new_node.ToString ());
 						openStack.Push (new_node);
 					}
 					// for energy
