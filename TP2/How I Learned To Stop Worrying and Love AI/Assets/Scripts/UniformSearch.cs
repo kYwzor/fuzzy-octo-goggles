@@ -43,7 +43,6 @@ public class UniformSearch: SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}

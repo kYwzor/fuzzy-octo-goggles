@@ -44,7 +44,6 @@ public class DepthFirstSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 	}
 }

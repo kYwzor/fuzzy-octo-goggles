@@ -43,7 +43,6 @@ public class AStarSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}

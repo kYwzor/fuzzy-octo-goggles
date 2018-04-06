@@ -43,7 +43,6 @@ public class BreadthFirstSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}

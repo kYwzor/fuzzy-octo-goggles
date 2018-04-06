@@ -43,7 +43,6 @@ public class GreedySearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-			foundPath = true;
 		}
 
 	}
