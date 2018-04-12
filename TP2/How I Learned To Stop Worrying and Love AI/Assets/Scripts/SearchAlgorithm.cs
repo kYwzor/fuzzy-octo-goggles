@@ -166,8 +166,9 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected abstract void Step ();
 
 	//NOTE: You have to implement this method if your algorithm requires an heuristic
-	protected virtual int GetHeuristic(Node currentNode) { 
-		return Mathf.Abs(targetNode.gridX - currentNode.gridX) + Mathf.Abs(targetNode.gridY - currentNode.gridY) * Mathf.Abs(targetNode.gridX - currentNode.gridX) + Mathf.Abs(targetNode.gridY - currentNode.gridY); 
+	protected virtual int GetHeuristic(Node currentNode, float mult) { 
+		int aux = (int) (Mathf.Abs(targetNode.gridX - currentNode.gridX) + Mathf.Abs(targetNode.gridY - currentNode.gridY)); 
+		return (int)(aux*(aux/mult));
 	}
 
 }

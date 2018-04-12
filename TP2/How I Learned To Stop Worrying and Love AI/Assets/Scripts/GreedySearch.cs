@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GreedySearch : SearchAlgorithm {
 
-	private PriorityQueue2 priorityQueue;
+	private float mult = 1;
+	private PriorityQueue priorityQueue;
 
 
 	protected override void Begin () {
@@ -18,6 +19,7 @@ public class GreedySearch : SearchAlgorithm {
 	}
 
 	protected override void Step () {
+
 		if (priorityQueue.Count > 0)
 		{
 			SearchState currentState = priorityQueue.PopFirst ();
@@ -29,7 +31,7 @@ public class GreedySearch : SearchAlgorithm {
 				foundPath = true;
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
-					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc), currentState);
+					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc, mult), currentState);
 					priorityQueue.Add (new_node, (int)new_node.h);
 				}
 				// for energy

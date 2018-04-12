@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UniformSearch: SearchAlgorithm {
 
-	private PriorityQueue openQueue;
+	private PriorityQueue priorityQueue;
 
 
 	protected override void Begin () {
@@ -12,15 +12,16 @@ public class UniformSearch: SearchAlgorithm {
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
 		SearchState start = new SearchState (startNode, 0);
-		openQueue = new PriorityQueue();
-		openQueue.Add(start, 0);
+		priorityQueue = new PriorityQueue();
+		priorityQueue.Add(start, 0);
 		
 	}
 	
 	protected override void Step () {
-		if (openQueue.Count > 0)
+		
+		if (priorityQueue.Count > 0)
 		{
-			SearchState currentState = openQueue.PopFirst();
+			SearchState currentState = priorityQueue.PopFirst();
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;
@@ -30,11 +31,11 @@ public class UniformSearch: SearchAlgorithm {
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
 					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, currentState);
-					openQueue.Add (new_node, (int)new_node.g);
+					priorityQueue.Add (new_node, (int)new_node.g);
 				}
 				// for energy
-				if ((ulong) openQueue.Count > maxListSize) {
-					maxListSize = (ulong) openQueue.Count;
+				if ((ulong) priorityQueue.Count > maxListSize) {
+					maxListSize = (ulong) priorityQueue.Count;
 				}
 			}
 		}

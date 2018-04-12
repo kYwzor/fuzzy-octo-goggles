@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProgressiveDepthSearch : SearchAlgorithm {
 
-	public int depthLimit;
+	private int depthLimit;
 	private Stack<SearchState> openStack;
 
 
