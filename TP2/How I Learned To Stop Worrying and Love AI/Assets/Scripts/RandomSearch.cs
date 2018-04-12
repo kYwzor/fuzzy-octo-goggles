@@ -20,7 +20,7 @@ public class RandomSearch : SearchAlgorithm {
 	protected override void Step () {
 		if (openList.Count > 0)
 		{
-			SearchState currentState = openList[Random.Range (0, openList.Count - 1)];
+			SearchState currentState = openList[Random.Range (0, openList.Count)];
 			openList.Remove (currentState);
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {

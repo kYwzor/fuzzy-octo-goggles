@@ -18,7 +18,6 @@ public class UniformSearch: SearchAlgorithm {
 	}
 	
 	protected override void Step () {
-		
 		if (openQueue.Count > 0)
 		{
 			SearchState currentState = openQueue.PopFirst();
