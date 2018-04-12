@@ -690,7 +690,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1332496619897340, guid: fed3d405e91c546ab9b7160fbcd7dab2,
     type: 2}
   m_PrefabInternal: {fileID: 510419647}
---- !u!114 &720915757
+--- !u!114 &720915753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -698,16 +698,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 720915752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f67ed0ce379d345b4ecda7df5c107f, type: 3}
+  m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 100
+  stepsPerFrame: 1000
   pathCost: 0
   numberOfExpandedNodes: 0
   numberOfVisited: 0
   maxListSize: 0
-  listSizeLimit: 20000
-  maxNumberOfExpanded: 20000
+  listSizeLimit: 1000000
+  maxNumberOfExpanded: 1000000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  mult: 2
+--- !u!114 &720915757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720915752}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f67ed0ce379d345b4ecda7df5c107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 200000
+  maxNumberOfExpanded: 200000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}

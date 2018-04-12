@@ -20,6 +20,7 @@ public class RandomSearch : SearchAlgorithm {
 	protected override void Step () {
 		if (openList.Count > 0)
 		{
+			Random.InitState(System.DateTime.Now.Millisecond);
 			SearchState currentState = openList[Random.Range (0, openList.Count - 1)];
 			openList.Remove (currentState);
 			VisitNode (currentState);
