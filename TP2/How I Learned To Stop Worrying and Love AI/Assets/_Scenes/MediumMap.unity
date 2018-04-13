@@ -553,6 +553,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 4.08
       objectReference: {fileID: 0}
+    - target: {fileID: 114542834247369916, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: autorun
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fed3d405e91c546ab9b7160fbcd7dab2, type: 2}
   m_IsPrefabParent: 0
@@ -735,9 +740,9 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
   temperature: 1
-  seed: 0
+  seed: 1
   div: 1
-  heuristic: 1
+  heuristic: 0
 --- !u!114 &720915757
 MonoBehaviour:
   m_ObjectHideFlags: 0

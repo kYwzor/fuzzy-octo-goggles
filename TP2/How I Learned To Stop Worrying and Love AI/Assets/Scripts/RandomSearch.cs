@@ -22,7 +22,7 @@ public class RandomSearch : SearchAlgorithm {
         return "RandomSearch";
     }
 
-    protected override string getSeed()
+    protected override string getExtra()
     {
         return "N/A";
     }

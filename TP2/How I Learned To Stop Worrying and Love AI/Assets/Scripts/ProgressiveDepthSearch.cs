@@ -23,9 +23,9 @@ public class ProgressiveDepthSearch : SearchAlgorithm {
         return "ProgressiveDepthSearch";
     }
 
-    protected override string getSeed()
+    protected override string getExtra()
     {
-        return "N/A";
+        return depthLimit.ToString(); 
     }
 
     protected override void Step () {

@@ -22,7 +22,7 @@ public class UniformSearch: SearchAlgorithm {
         return "UniformSearch";
     }
 
-    protected override string getSeed()
+    protected override string getExtra()
     {
         return "N/A";
     }

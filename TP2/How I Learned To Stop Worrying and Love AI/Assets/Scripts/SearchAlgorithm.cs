@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public abstract class SearchAlgorithm : MonoBehaviour {
-
 	public int stepsPerFrame = 100;
 	public int pathCost;
 	public int numberOfExpandedNodes = 0;
@@ -60,11 +59,11 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 					Step ();
 					numberOfSteps++;
 					if (numberOfExpandedNodes > maxNumberOfExpanded || maxListSize > listSizeLimit) {
-                        writeOutputLine(getName(), false, pathCost, numberOfVisited, numberOfExpandedNodes, getSeed());
+                        writeOutputLine(getName(), false, pathCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 						break;
 					}
 				} else {
-                    writeOutputLine(getName(), foundPath, pathCost, numberOfVisited, numberOfExpandedNodes, getSeed());
+                    writeOutputLine(getName(), foundPath, pathCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 					break;
 				}
 			}
@@ -172,7 +171,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	// These methods should be overriden on each specific search algorithm.
 	protected abstract void Begin ();
 	protected abstract void Step ();
-    protected abstract String getSeed ();
+    protected abstract String getExtra ();
 	protected abstract String getName ();
 
 	//NOTE: You have to implement this method if your algorithm requires an heuristic
@@ -183,9 +182,9 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 		return (int)(manhattan*(manhattan/div));
 	}
 
-    protected void writeOutputLine(String algorithmName, bool foundPath, double weight, int visited, int expanded, String seed)
+    protected void writeOutputLine(String algorithmName, bool foundPath, double weight, int visited, int expanded, ulong maxListSize, String seed)
     {
                 String sceneName = SceneManager.GetActiveScene().name;
-                testWriter.writeResultLine((sceneName + "_" + algorithmName + ".csv"), foundPath, weight, visited, expanded, seed);
+                testWriter.writeResultLine((sceneName + "_" + algorithmName + ".csv"), foundPath, weight, visited, expanded, maxListSize, seed);
     }
 }

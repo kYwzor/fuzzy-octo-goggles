@@ -48,7 +48,7 @@ public class AStarSearch : SearchAlgorithm {
 
 	}
 
-    protected override string getSeed()
+    protected override string getExtra()
     {
         return "N/A";
     }

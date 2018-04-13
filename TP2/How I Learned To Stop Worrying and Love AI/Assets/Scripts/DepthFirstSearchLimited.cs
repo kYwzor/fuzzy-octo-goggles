@@ -5,6 +5,7 @@ using UnityEngine;
 public class DepthFirstSearchLimited : SearchAlgorithm {
 
 	public int depthLimit = 100;
+    private int depth;
 	private Stack<SearchState> openStack;
 
 
@@ -23,9 +24,9 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
         return "DepthFirstSearchLimited";
     }
 
-    protected override string getSeed()
+    protected override string getExtra()
     {
-        return "N/A";
+        return depth.ToString();
     }
 
     protected override void Step () {
@@ -33,6 +34,7 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
 		{
 			SearchState currentState = openStack.Pop();
 			VisitNode (currentState);
+            depth = currentState.depth;
 			if (currentState.node == targetNode) {
 				solution = currentState;
 				finished = true;

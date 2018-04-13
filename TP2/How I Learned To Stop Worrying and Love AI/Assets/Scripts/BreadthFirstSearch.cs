@@ -22,7 +22,7 @@ public class BreadthFirstSearch : SearchAlgorithm {
         return "BreadthFirst";
     }
 
-    protected override string getSeed()
+    protected override string getExtra()
     {
         return "N/A";
     }

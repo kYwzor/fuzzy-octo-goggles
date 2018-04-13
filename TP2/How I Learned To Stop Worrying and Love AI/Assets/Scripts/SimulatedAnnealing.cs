@@ -87,7 +87,7 @@ public class SimulatedAnnealing : SearchAlgorithm {
         return "SimulatedAnnealing";
     }
 
-    protected override string getSeed()
+    protected override string getExtra()
     {
         return seed.ToString();
     }
