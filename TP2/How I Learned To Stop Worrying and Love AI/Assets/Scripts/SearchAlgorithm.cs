@@ -64,7 +64,6 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 						break;
 					}
 				} else {
-                    writeOutputLine(getName(), foundPath, auxCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 					break;
 				}
 			}
@@ -107,6 +106,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
             auxCost = pathCost;
             auxCost = pathCost;
 			print ("Path cost " + pathCost);
+            writeOutputLine(getName(), foundPath, auxCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 			while (state.parent != null) {
 				path.Insert (0, state.node);
 				lstates.Insert (0, state);

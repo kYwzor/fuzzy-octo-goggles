@@ -299,7 +299,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332496619897340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
   m_Name: 
@@ -472,7 +472,8 @@ MonoBehaviour:
   nodesExpanded: 0
   nodesVisited: 0
   pathCost: 0
-  autorun: 0
+  autorun: 1
+  fullStop: 0
 --- !u!114 &114659410291889136
 MonoBehaviour:
   m_ObjectHideFlags: 1

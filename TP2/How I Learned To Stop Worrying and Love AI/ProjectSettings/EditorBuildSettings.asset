@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/MediumMap.unity
     guid: 568ba9384864247c3ae7812a8b26ca46
+  - enabled: 0
+    path: Assets/_Scenes/Small.unity
+    guid: f74f38388334248e691dc9d7c3a56510

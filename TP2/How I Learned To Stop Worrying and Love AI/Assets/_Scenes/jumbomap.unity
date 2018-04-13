@@ -4958,6 +4958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e0e64e7463cca42ad41911c1814774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marvin: {fileID: 1250807996}
 --- !u!4 &1168186546
 Transform:
   m_ObjectHideFlags: 0
@@ -5388,6 +5389,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4836612029940404, guid: 46398185d85ec45ad849807be63241dc,
     type: 2}
   m_PrefabInternal: {fileID: 1379076192}
+--- !u!1 &1250807996 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1332496619897340, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 510419647}
 --- !u!1001 &1335056857
 Prefab:
   m_ObjectHideFlags: 0

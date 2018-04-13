@@ -23,6 +23,7 @@ public class Agent : MonoBehaviour {
 	public int nodesVisited = 0;
 	public int pathCost = 0;
     public bool autorun;
+    public bool fullStop = false;
 
 
 
@@ -122,6 +123,10 @@ public class Agent : MonoBehaviour {
 					moveToNext = false;
 					isAtTarget = false;
 				}
+                if(targets.Count == 0 && search.GetRunning() && search.Finished())
+                {
+                    fullStop = true;
+                }
 			}
 			if (!isMoving) {
 				UpdateEnergy ();
