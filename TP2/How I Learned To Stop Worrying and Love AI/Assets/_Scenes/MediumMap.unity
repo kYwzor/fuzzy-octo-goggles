@@ -696,7 +696,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 720915752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
   m_Name: 
@@ -711,7 +711,33 @@ MonoBehaviour:
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  mult: 2
+  div: 1
+  heuristic: 0
+--- !u!114 &720915754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720915752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 1000000
+  maxNumberOfExpanded: 1000000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  temperature: 1
+  seed: 0
+  div: 1
+  heuristic: 1
 --- !u!114 &720915757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,6 +756,27 @@ MonoBehaviour:
   maxListSize: 0
   listSizeLimit: 200000
   maxNumberOfExpanded: 200000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &720915759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720915752}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69fef4371de1b9843b955f832c27338f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 1000000
+  maxNumberOfExpanded: 1000000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}

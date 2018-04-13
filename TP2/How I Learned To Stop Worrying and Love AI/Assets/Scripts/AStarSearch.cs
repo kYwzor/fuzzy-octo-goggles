@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class AStarSearch : SearchAlgorithm {
 
-	public float mult = 1;
+	public float div = 1;
 	private PriorityQueue priorityQueue;
-
+	public SearchAlgorithm.HeuristicChoice heuristic;
 
 	protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
-		SearchState start = new SearchState (startNode, 0, GetHeuristic(startNode, mult));
-		priorityQueue = new PriorityQueue2 ();
+		SearchState start = new SearchState (startNode, 0, GetHeuristic(startNode, div, heuristic));
+		priorityQueue = new PriorityQueue ();
 		priorityQueue.Add (start, (int) start.f);
 
 	}
@@ -31,7 +31,7 @@ public class AStarSearch : SearchAlgorithm {
 				foundPath = true;
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
-					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc, mult), currentState);
+					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc, div, heuristic), currentState);
 					priorityQueue.Add (new_node, (int)new_node.f);
 				}
 				// for energy

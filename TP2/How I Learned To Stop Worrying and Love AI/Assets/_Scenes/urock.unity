@@ -639,7 +639,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262071751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
   m_Name: 
@@ -677,6 +677,30 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
   depthLimit: 20
+--- !u!114 &1262071754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1262071751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 10000000
+  maxNumberOfExpanded: 10000000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  temperature: 10
+  seed: 0
+  divisor: 10
 --- !u!114 &1262071757
 MonoBehaviour:
   m_ObjectHideFlags: 0

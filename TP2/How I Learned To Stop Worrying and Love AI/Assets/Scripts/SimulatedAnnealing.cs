@@ -5,16 +5,18 @@ using UnityEngine;
 public class SimulatedAnnealing : SearchAlgorithm {
 
 	SearchState currentState;
-	public double temperature = 100;
+	public double temperature = 5;
 	public int seed = 0;
+	public float div = 1;
+	public SearchAlgorithm.HeuristicChoice heuristic;
 
 	// Use this for initialization
 	protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
-		currentState = new SearchState (startNode, 0, GetHeuristic(startNode));
+		currentState = new SearchState (startNode, 0, GetHeuristic(startNode,div, heuristic));
 		Random.InitState (seed);
-		Debug.Log (targetNode.gridX + " " + targetNode.gridY);
+		//Debug.Log (targetNode.gridX + " " + targetNode.gridY);
 	}
 	
 	// Update is called once per frame
@@ -30,14 +32,14 @@ public class SimulatedAnnealing : SearchAlgorithm {
 				foundPath = true;
 			} else {
 				List<Node> suc_list = GetNodeSucessors (currentState.node);
-				Debug.Log ("H: " + GetHeuristic (currentState.node) + " " + currentState.node.gridX + " " + currentState.node.gridY);
+				//Debug.Log ("H: " + GetHeuristic (currentState.node,divisor) + " " + currentState.node.gridX + " " + currentState.node.gridY);
 				Node aux_node = suc_list [Random.Range (0, suc_list.Count)];
-				Debug.Log ("H: " + GetHeuristic (aux_node) + " " + aux_node.gridX + " " + aux_node.gridY);
+				//Debug.Log ("H: " + GetHeuristic (aux_node,divisor) + " " + aux_node.gridX + " " + aux_node.gridY);
 				// for energy
-				SearchState new_node = new SearchState (aux_node, aux_node.gCost + currentState.g, GetHeuristic (aux_node), currentState);
+				SearchState new_node = new SearchState (aux_node, aux_node.gCost + currentState.g, GetHeuristic (aux_node,div, heuristic), currentState);
 				if (new_node.h < currentState.h) {
 					currentState = new_node;
-					Debug.Log ("Accepted - H");
+					//Debug.Log ("Accepted - H");
 				} else {
 					/*
 					Debug.Log ("Diff " + (currentState.h - new_node.h));
@@ -46,14 +48,14 @@ public class SimulatedAnnealing : SearchAlgorithm {
 					Debug.Log (Mathf.Exp ((float)((currentState.h - new_node.h) / temperature)));
 					*/
 					if (Random.value <= Mathf.Exp ((float)((currentState.h - new_node.h) / temperature))) {
-						Debug.Log ("Accepted - T " + Mathf.Exp ((float)((currentState.h - new_node.h) / temperature)));
+						//Debug.Log ("Accepted - T " + Mathf.Exp ((float)((currentState.h - new_node.h) / temperature)));
 						currentState = new_node;
 					} else {
-						Debug.Log ("Rejected - T " + Mathf.Exp ((float)((currentState.h - new_node.h) / temperature)));
+						//Debug.Log ("Rejected - T " + Mathf.Exp ((float)((currentState.h - new_node.h) / temperature)));
 
 					}
 				}
-				Debug.Log ("-----");
+				//Debug.Log ("-----");
 
 			}
 		}

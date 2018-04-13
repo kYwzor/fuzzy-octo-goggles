@@ -28,6 +28,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected bool running = false;
 	protected bool finished = false;
 
+	public enum HeuristicChoice {Manhattan, ModifiedManhattan};
 
 
 	public void StartRunning() {
@@ -166,9 +167,11 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected abstract void Step ();
 
 	//NOTE: You have to implement this method if your algorithm requires an heuristic
-	protected virtual int GetHeuristic(Node currentNode, float mult) { 
-		int aux = (int) (Mathf.Abs(targetNode.gridX - currentNode.gridX) + Mathf.Abs(targetNode.gridY - currentNode.gridY)); 
-		return (int)(aux*(aux/mult));
+	protected virtual int GetHeuristic(Node currentNode, float div, HeuristicChoice choice) { 
+		float manhattan = Mathf.Abs(targetNode.gridX - currentNode.gridX) + Mathf.Abs(targetNode.gridY - currentNode.gridY);  
+		if (choice == HeuristicChoice.Manhattan)
+			return (int)manhattan;
+		return (int)(manhattan*(manhattan/div));
 	}
 
 }

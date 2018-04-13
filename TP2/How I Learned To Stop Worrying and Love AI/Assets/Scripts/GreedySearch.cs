@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class GreedySearch : SearchAlgorithm {
 
-	private float mult = 1;
+	public float div = 1;
 	private PriorityQueue priorityQueue;
-
+	public SearchAlgorithm.HeuristicChoice heuristic;
 
 	protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
 		SearchState start = new SearchState (startNode, 0);
-		priorityQueue = new PriorityQueue2 ();
+		priorityQueue = new PriorityQueue ();
 		priorityQueue.Add (start, 0);
 
 	}
@@ -31,7 +31,7 @@ public class GreedySearch : SearchAlgorithm {
 				foundPath = true;
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
-					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc, mult), currentState);
+					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc, div, heuristic), currentState);
 					priorityQueue.Add (new_node, (int)new_node.h);
 				}
 				// for energy
