@@ -28,6 +28,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected bool foundPath = false;
 	protected bool running = false;
 	protected bool finished = false;
+    private int auxCost;
     protected TestWriter testWriter;
     protected int seed;
 
@@ -59,11 +60,11 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 					Step ();
 					numberOfSteps++;
 					if (numberOfExpandedNodes > maxNumberOfExpanded || maxListSize > listSizeLimit) {
-                        writeOutputLine(getName(), false, pathCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
+                        writeOutputLine(getName(), false, auxCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 						break;
 					}
 				} else {
-                    writeOutputLine(getName(), foundPath, pathCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
+                    writeOutputLine(getName(), foundPath, auxCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 					break;
 				}
 			}
@@ -103,6 +104,8 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 
 			SearchState state = solution;
 			pathCost = (int)solution.f;
+            auxCost = pathCost;
+            auxCost = pathCost;
 			print ("Path cost " + pathCost);
 			while (state.parent != null) {
 				path.Insert (0, state.node);
