@@ -732,8 +732,8 @@ MonoBehaviour:
   numberOfExpandedNodes: 0
   numberOfVisited: 0
   maxListSize: 0
-  listSizeLimit: 200000
-  maxNumberOfExpanded: 300000
+  listSizeLimit: 2000
+  maxNumberOfExpanded: 3000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378378068}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69fef4371de1b9843b955f832c27338f, type: 3}
   m_Name: 
