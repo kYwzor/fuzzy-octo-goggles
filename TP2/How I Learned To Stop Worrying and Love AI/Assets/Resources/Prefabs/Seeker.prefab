@@ -55,6 +55,14 @@ GameObject:
   - component: {fileID: 23602971449705432}
   - component: {fileID: 114542834247369916}
   - component: {fileID: 114502472434197978}
+  - component: {fileID: 114462258056075948}
+  - component: {fileID: 114515145858549218}
+  - component: {fileID: 114316727769435524}
+  - component: {fileID: 114928576442725276}
+  - component: {fileID: 114260635324843856}
+  - component: {fileID: 114659410291889136}
+  - component: {fileID: 114050499396736032}
+  - component: {fileID: 114047705947961510}
   m_Layer: 0
   m_Name: Seeker
   m_TagString: Unit
@@ -127,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332496619897340}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: 1, z: -4.5}
+  m_LocalPosition: {x: -8.75, y: 1, z: 3.93}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4505918547214202}
@@ -285,13 +293,124 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294906117
+--- !u!114 &114047705947961510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 100
+  maxNumberOfExpanded: 1000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  temperature: 0
+  seed: 0
+  div: 1
+  heuristic: 0
+--- !u!114 &114050499396736032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5697cc1b4bf5bc42a98e57c03ba3058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 200000
+  maxNumberOfExpanded: 300000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  div: 1
+  heuristic: 0
+--- !u!114 &114260635324843856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69fef4371de1b9843b955f832c27338f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 10000000
+  maxNumberOfExpanded: 10000000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &114316727769435524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739189df6e87274408c41c4f1969bce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 1000000
+  maxNumberOfExpanded: 1000000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &114462258056075948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7568be2af54854e9b80ef789c16caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 2000
+  maxNumberOfExpanded: 3000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114502472434197978
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332496619897340}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2652f86756c2f4f4fbedd6815d193b51, type: 3}
   m_Name: 
@@ -301,11 +420,33 @@ MonoBehaviour:
   numberOfExpandedNodes: 0
   numberOfVisited: 0
   maxListSize: 0
-  listSizeLimit: 5000
-  maxNumberOfExpanded: 5000
+  listSizeLimit: 200000
+  maxNumberOfExpanded: 300000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &114515145858549218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b1c66211013f246a86793a615cc33d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 200000
+  maxNumberOfExpanded: 300000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  depthLimit: 40
 --- !u!114 &114542834247369916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -327,7 +468,52 @@ MonoBehaviour:
   debugExpandedNodes: 1
   healthExpandedBar: {fileID: 1754086371086806}
   healthForce: {fileID: 1009110853366294}
-  regenRate: 10
+  regenRate: 100
   nodesExpanded: 0
   nodesVisited: 0
   pathCost: 0
+  autorun: 0
+--- !u!114 &114659410291889136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f67ed0ce379d345b4ecda7df5c107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 200000
+  maxNumberOfExpanded: 300000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &114928576442725276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332496619897340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 1000
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 1000000
+  maxNumberOfExpanded: 1000000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  div: 1
+  heuristic: 0
