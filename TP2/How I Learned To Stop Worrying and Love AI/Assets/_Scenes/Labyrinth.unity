@@ -711,6 +711,33 @@ MonoBehaviour:
   mapCosts: {fileID: 4900000, guid: a1dbd0d965ac84140aa312948d65c7a6, type: 3}
   randomCosts: 0
   prefixUiText: Text-
+--- !u!1 &1295052646 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1332496619897340, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1608016663}
+--- !u!114 &1295052651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1295052646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 10000
+  heuristicWeight: 10
+  maxNumberOfExpanded: 10000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1379465106 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4821824955017446, guid: fed3d405e91c546ab9b7160fbcd7dab2,

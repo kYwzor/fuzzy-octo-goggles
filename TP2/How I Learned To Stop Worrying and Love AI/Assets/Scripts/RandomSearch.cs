@@ -21,7 +21,7 @@ public class RandomSearch : SearchAlgorithm {
 		if (openList.Count > 0)
 		{
 			Random.InitState(System.DateTime.Now.Millisecond);
-			SearchState currentState = openList[Random.Range (0, openList.Count - 1)];
+			SearchState currentState = openList[Random.Range (0, openList.Count)];
 			openList.Remove (currentState);
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {

@@ -19,7 +19,6 @@ public class GreedySearch : SearchAlgorithm {
 	}
 
 	protected override void Step () {
-
 		if (priorityQueue.Count > 0)
 		{
 			SearchState currentState = priorityQueue.PopFirst ();
