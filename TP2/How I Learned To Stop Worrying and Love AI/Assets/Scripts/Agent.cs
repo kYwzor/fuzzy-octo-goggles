@@ -23,7 +23,8 @@ public class Agent : MonoBehaviour {
 	public int nodesVisited = 0;
 	public int pathCost = 0;
     public bool autorun;
-    public bool fullStop = false;
+    public bool skipAnimations = false;
+    public bool nextScene = false;
 
 
 
@@ -38,7 +39,7 @@ public class Agent : MonoBehaviour {
 	private int updateEnergyExpandedInterval;
 	private int currentCost = 0;
 	private bool agentRunning = false;
-	protected List<Node> path = null;
+	public List<Node> path = null;
 	[HideInInspector]protected bool algorithmFinished = false;
 
 	public void Awake() {
@@ -123,9 +124,9 @@ public class Agent : MonoBehaviour {
 					moveToNext = false;
 					isAtTarget = false;
 				}
-                if(targets.Count == 0 && search.GetRunning() && search.Finished())
+                if(targets.Count == 0 && search.Finished() && search.FoundPath() && path != null)
                 {
-                    fullStop = true;
+                    nextScene = true;
                 }
 			}
 			if (!isMoving) {
@@ -140,10 +141,22 @@ public class Agent : MonoBehaviour {
 
 	public void FixedUpdate() {
 		Time.timeScale = 0.1f;
-		if(path != null) {
-			Move ();
-		}
-		
+        if (!skipAnimations)
+        {
+            if(path != null) {
+            Move ();
+            }
+        }
+        else
+        {
+            if(path != null)
+            {
+                isAtTarget = true;
+                isMoving = false;
+                transform.position = path[path.Count - 1].worldPosition + new Vector3(0, 1f, 0);
+                path = null;
+            }
+        }
 	}
 
 	/// <summary>
@@ -247,6 +260,7 @@ public class Agent : MonoBehaviour {
 			uniText.text += "expanded: " + nodesExpanded + " >= "+ search.maxNumberOfExpanded + "(maxNumberOfExpansions)";
 		else
 			uniText.text += "onlist: " + nodesOnList + " >= " + search.GetListSizeLimit() + "(GetListSizeLimit)";
+        nextScene = true;
 	}
 
 	bool IsFullyLoaded() {

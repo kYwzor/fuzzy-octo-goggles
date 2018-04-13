@@ -5,9 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+    path: Assets/_Scenes/jumbomap.unity
+    guid: 8bf80aa110f244c55a1836907a1fd684
+  - enabled: 1
     path: Assets/_Scenes/MediumMap.unity
     guid: 568ba9384864247c3ae7812a8b26ca46
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/Small.unity
     guid: f74f38388334248e691dc9d7c3a56510
+  - enabled: 1
+    path: Assets/_Scenes/SmallLabyrinth.unity
+    guid: 744b25720f453464dbd191e72da4703b
+  - enabled: 1
+    path: Assets/_Scenes/Labyrinth.unity
+    guid: f951bd631aa8046afb2d946840dbac5c
+  - enabled: 1
+    path: Assets/_Scenes/twoRocksOneBrain.unity
+    guid: 5a4879c8cc8d8496084a0addc39bf8cd
+  - enabled: 1
+    path: Assets/_Scenes/urock.unity
+    guid: 7ddb108cd2f9d445a91c8549318b5255

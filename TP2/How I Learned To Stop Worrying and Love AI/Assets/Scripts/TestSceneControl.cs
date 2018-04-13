@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TestSceneControl : MonoBehaviour {
 
-    private int flag = 1;
+    private int flag = 0;
     private string[] sceneList =
         { "jumbomap",
             "Labyrinth",
@@ -35,7 +35,7 @@ public class TestSceneControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (marvin.GetComponent<Agent>().fullStop)
+        if (marvin.GetComponent<Agent>().nextScene)
         {
             if (flag == 1)
                 SceneManager.LoadScene(nextScene);

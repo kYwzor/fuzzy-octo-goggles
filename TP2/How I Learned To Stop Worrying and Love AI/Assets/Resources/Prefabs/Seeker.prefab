@@ -309,12 +309,12 @@ MonoBehaviour:
   numberOfExpandedNodes: 0
   numberOfVisited: 0
   maxListSize: 0
-  listSizeLimit: 100
-  maxNumberOfExpanded: 1000
+  listSizeLimit: 1000000
+  maxNumberOfExpanded: 1000000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  temperature: 0
+  temperature: 10
   seed: 0
   div: 1
   heuristic: 0
@@ -373,13 +373,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739189df6e87274408c41c4f1969bce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 1000
+  stepsPerFrame: 10000
   pathCost: 0
   numberOfExpandedNodes: 0
   numberOfVisited: 0
   maxListSize: 0
-  listSizeLimit: 1000000
-  maxNumberOfExpanded: 1000000
+  listSizeLimit: 5000000
+  maxNumberOfExpanded: 5000000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
@@ -399,8 +399,8 @@ MonoBehaviour:
   numberOfExpandedNodes: 0
   numberOfVisited: 0
   maxListSize: 0
-  listSizeLimit: 2000
-  maxNumberOfExpanded: 3000
+  listSizeLimit: 100000
+  maxNumberOfExpanded: 100000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
@@ -415,13 +415,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2652f86756c2f4f4fbedd6815d193b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 100
+  stepsPerFrame: 10000
   pathCost: 0
   numberOfExpandedNodes: 0
   numberOfVisited: 0
   maxListSize: 0
-  listSizeLimit: 200000
-  maxNumberOfExpanded: 300000
+  listSizeLimit: 5000000
+  maxNumberOfExpanded: 5000000
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a9ce0b2bbfa4bba8b22f6507662b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lunaticMode: 1
   totalEnergy: 5
   currentForce: 0
   currentEnergyExpanded: 0
@@ -501,7 +502,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332496619897340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
   m_Name: 

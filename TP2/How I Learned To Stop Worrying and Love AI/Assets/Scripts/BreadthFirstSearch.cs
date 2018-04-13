@@ -5,9 +5,10 @@ using UnityEngine;
 public class BreadthFirstSearch : SearchAlgorithm {
 
 	private Queue<SearchState> openQueue;
+    private SearchState currentState;
 
 
-	protected override void Begin () {
+    protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
@@ -24,14 +25,14 @@ public class BreadthFirstSearch : SearchAlgorithm {
 
     protected override string getExtra()
     {
-        return "N/A";
+        return currentState.depth.ToString();
     }
 
     protected override void Step () {
 		
 		if (openQueue.Count > 0)
 		{
-			SearchState currentState = openQueue.Dequeue();
+			currentState = openQueue.Dequeue();
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;

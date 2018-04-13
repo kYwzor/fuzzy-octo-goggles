@@ -7,8 +7,10 @@ public class GreedySearch : SearchAlgorithm {
 	public float div = 1;
 	private PriorityQueue priorityQueue;
 	public SearchAlgorithm.HeuristicChoice heuristic;
+    private SearchState currentState;
 
-	protected override void Begin () {
+
+    protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
@@ -22,7 +24,7 @@ public class GreedySearch : SearchAlgorithm {
 
 		if (priorityQueue.Count > 0)
 		{
-			SearchState currentState = priorityQueue.PopFirst ();
+			currentState = priorityQueue.PopFirst ();
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;
@@ -50,7 +52,7 @@ public class GreedySearch : SearchAlgorithm {
 
     protected override string getExtra()
     {
-        return "N/A";
+        return currentState.depth.ToString();
     }
 
     protected override string getName()

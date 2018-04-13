@@ -5,6 +5,7 @@ using UnityEngine;
 public class UniformSearch: SearchAlgorithm {
 
 	private PriorityQueue priorityQueue;
+    private SearchState currentState;
 
 
 	protected override void Begin () {
@@ -24,7 +25,7 @@ public class UniformSearch: SearchAlgorithm {
 
     protected override string getExtra()
     {
-        return "N/A";
+        return currentState.depth.ToString();
     }
 
     protected override void Step () {

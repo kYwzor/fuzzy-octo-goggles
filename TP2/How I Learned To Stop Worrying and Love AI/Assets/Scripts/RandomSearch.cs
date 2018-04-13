@@ -5,9 +5,11 @@ using UnityEngine;
 public class RandomSearch : SearchAlgorithm {
 
 	private 	List<SearchState> openList;
+    private SearchState currentState;
 
 
-	protected override void Begin () {
+
+    protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
@@ -24,14 +26,14 @@ public class RandomSearch : SearchAlgorithm {
 
     protected override string getExtra()
     {
-        return "N/A";
+        return currentState.depth.ToString();
     }
 
     protected override void Step () {
 		if (openList.Count > 0)
 		{
 			Random.InitState(System.DateTime.Now.Millisecond);
-			SearchState currentState = openList[Random.Range (0, openList.Count)];
+			currentState = openList[Random.Range (0, openList.Count)];
 
 			openList.Remove (currentState);
 			VisitNode (currentState);

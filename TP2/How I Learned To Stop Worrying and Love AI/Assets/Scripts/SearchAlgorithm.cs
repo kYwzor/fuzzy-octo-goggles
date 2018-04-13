@@ -10,10 +10,10 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	public int numberOfExpandedNodes = 0;
 	public int numberOfVisited = 0;
 	public ulong maxListSize = 0;
-	public ulong listSizeLimit = 100;
+	public ulong listSizeLimit = 5000000;
 	// for debug purposes this should hold all  nodes
 	public List<Node> nodesVisited;
-	public int maxNumberOfExpanded = 1000;
+	public int maxNumberOfExpanded = 5000000;
 	[HideInInspector] public int maxNumberOfVisited = 1000;
 	[HideInInspector] public Vector3 startPos;
 	[HideInInspector] public Vector3 targetPos;
@@ -60,7 +60,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 					Step ();
 					numberOfSteps++;
 					if (numberOfExpandedNodes > maxNumberOfExpanded || maxListSize > listSizeLimit) {
-                        writeOutputLine(getName(), false, auxCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
+                        writeOutputLine(getName(), false, 0, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 						break;
 					}
 				} else {
@@ -95,6 +95,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	}
 
 	public List<Node> RetracePath() {
+        writeOutputLine(getName(), foundPath, (int)solution.f, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 		path = null;
 		if (finished && foundPath) {
 			path = new List<Node> ();
@@ -104,9 +105,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 			SearchState state = solution;
 			pathCost = (int)solution.f;
             auxCost = pathCost;
-            auxCost = pathCost;
 			print ("Path cost " + pathCost);
-            writeOutputLine(getName(), foundPath, auxCost, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
 			while (state.parent != null) {
 				path.Insert (0, state.node);
 				lstates.Insert (0, state);
