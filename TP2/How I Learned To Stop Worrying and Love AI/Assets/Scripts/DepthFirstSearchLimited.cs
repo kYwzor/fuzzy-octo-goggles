@@ -18,7 +18,17 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
 
 	}
 
-	protected override void Step () {
+    protected override string getName()
+    {
+        return "DepthFirstSearchLimited";
+    }
+
+    protected override string getSeed()
+    {
+        return "N/A";
+    }
+
+    protected override void Step () {
 		if (openStack.Count > 0)
 		{
 			SearchState currentState = openStack.Pop();

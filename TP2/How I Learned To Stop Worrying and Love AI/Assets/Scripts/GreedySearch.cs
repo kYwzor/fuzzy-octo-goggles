@@ -47,4 +47,14 @@ public class GreedySearch : SearchAlgorithm {
 		}
 
 	}
+
+    protected override string getSeed()
+    {
+        return "N/A";
+    }
+
+    protected override string getName()
+    {
+        return "GreedySearch";
+    }
 }

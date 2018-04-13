@@ -17,7 +17,17 @@ public class RandomSearch : SearchAlgorithm {
 
 	}
 
-	protected override void Step () {
+    protected override string getName()
+    {
+        return "RandomSearch";
+    }
+
+    protected override string getSeed()
+    {
+        return "N/A";
+    }
+
+    protected override void Step () {
 		if (openList.Count > 0)
 		{
 			Random.InitState(System.DateTime.Now.Millisecond);

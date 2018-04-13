@@ -16,8 +16,18 @@ public class UniformSearch: SearchAlgorithm {
 		priorityQueue.Add(start, 0);
 		
 	}
-	
-	protected override void Step () {
+
+    protected override string getName()
+    {
+        return "UniformSearch";
+    }
+
+    protected override string getSeed()
+    {
+        return "N/A";
+    }
+
+    protected override void Step () {
 		
 		if (priorityQueue.Count > 0)
 		{

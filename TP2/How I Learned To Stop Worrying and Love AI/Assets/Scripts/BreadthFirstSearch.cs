@@ -16,8 +16,18 @@ public class BreadthFirstSearch : SearchAlgorithm {
 		openQueue.Enqueue(start);
 		
 	}
-	
-	protected override void Step () {
+
+    protected override string getName()
+    {
+        return "BreadthFirst";
+    }
+
+    protected override string getSeed()
+    {
+        return "N/A";
+    }
+
+    protected override void Step () {
 		
 		if (openQueue.Count > 0)
 		{

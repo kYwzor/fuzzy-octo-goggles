@@ -786,7 +786,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378378068}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
   m_Name: 
@@ -801,7 +801,8 @@ MonoBehaviour:
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  mult: 15
+  div: 1
+  heuristic: 0
 --- !u!114 &1378378073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,7 +866,33 @@ MonoBehaviour:
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  mult: 1
+  div: 1
+  heuristic: 0
+--- !u!114 &1378378080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378378068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsPerFrame: 100
+  pathCost: 0
+  numberOfExpandedNodes: 0
+  numberOfVisited: 0
+  maxListSize: 0
+  listSizeLimit: 100
+  maxNumberOfExpanded: 1000
+  maxNumberOfVisited: 1000
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  temperature: 0
+  seed: 0
+  div: 1
+  heuristic: 0
 --- !u!4 &1379465106 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4821824955017446, guid: fed3d405e91c546ab9b7160fbcd7dab2,

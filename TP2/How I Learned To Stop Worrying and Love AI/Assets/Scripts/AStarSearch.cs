@@ -47,4 +47,14 @@ public class AStarSearch : SearchAlgorithm {
 		}
 
 	}
+
+    protected override string getSeed()
+    {
+        return "N/A";
+    }
+
+    protected override string getName()
+    {
+        return "AStar";
+    }
 }

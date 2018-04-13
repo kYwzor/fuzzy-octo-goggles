@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class SearchAlgorithm : MonoBehaviour {
 
@@ -27,6 +29,8 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected bool foundPath = false;
 	protected bool running = false;
 	protected bool finished = false;
+    protected TestWriter testWriter;
+    protected int seed;
 
 	public enum HeuristicChoice {Manhattan, ModifiedManhattan};
 
@@ -40,6 +44,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 		numberOfExpandedNodes = 0;
 		numberOfVisited = 0;
 		pathCost = 0;
+        testWriter = new TestWriter();
 		// for debug purposes add all expanded nodes to this list
 		nodesVisited = new List<Node>();
 		maxListSize = 0;
@@ -55,9 +60,11 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 					Step ();
 					numberOfSteps++;
 					if (numberOfExpandedNodes > maxNumberOfExpanded || maxListSize > listSizeLimit) {
+                        writeOutputLine(getName(), false, pathCost, numberOfVisited, numberOfExpandedNodes, getSeed());
 						break;
 					}
 				} else {
+                    writeOutputLine(getName(), foundPath, pathCost, numberOfVisited, numberOfExpandedNodes, getSeed());
 					break;
 				}
 			}
@@ -165,6 +172,8 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	// These methods should be overriden on each specific search algorithm.
 	protected abstract void Begin ();
 	protected abstract void Step ();
+    protected abstract String getSeed ();
+	protected abstract String getName ();
 
 	//NOTE: You have to implement this method if your algorithm requires an heuristic
 	protected virtual int GetHeuristic(Node currentNode, float div, HeuristicChoice choice) { 
@@ -174,4 +183,9 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 		return (int)(manhattan*(manhattan/div));
 	}
 
+    protected void writeOutputLine(String algorithmName, bool foundPath, double weight, int visited, int expanded, String seed)
+    {
+                String sceneName = SceneManager.GetActiveScene().name;
+                testWriter.writeResultLine((sceneName + "_" + algorithmName + ".csv"), foundPath, weight, visited, expanded, seed);
+    }
 }

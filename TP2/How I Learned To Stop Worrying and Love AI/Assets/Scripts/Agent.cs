@@ -22,6 +22,7 @@ public class Agent : MonoBehaviour {
 	public int nodesExpanded = 0;
 	public int nodesVisited = 0;
 	public int pathCost = 0;
+    public bool autorun;
 
 
 
@@ -71,8 +72,7 @@ public class Agent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!isDead) {
-			
-			if (Input.GetKeyDown (KeyCode.Space) && !agentRunning) {
+			if ((Input.GetKeyDown (KeyCode.Space) || autorun) && !agentRunning) {
 				agentRunning = true;
 				search.StartRunning ();
 				uniText = GameObject.Find (GridMap.instance.prefixUiText + this.name).GetComponent<Text> ();
