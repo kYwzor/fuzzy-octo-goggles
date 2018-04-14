@@ -11,7 +11,7 @@ public class SimulatedAnnealing : SearchAlgorithm {
 	public int seed = 0;
     private int k = 0;
 	public float div = 1;
-	public SearchAlgorithm.HeuristicChoice heuristic;
+	public HeuristicChoice heuristic;
 
 	// Use this for initialization
 	protected override void Begin () {

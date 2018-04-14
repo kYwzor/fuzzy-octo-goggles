@@ -1,12 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-public class PriorityQueue {
-	private int size;
+public class PriorityQueue : PriorityHolder {
 	private SortedDictionary<int, Queue<SearchState>> data;
-
-	public int Count { get { return size; } }
 
 	public PriorityQueue()
 	{
@@ -14,25 +9,25 @@ public class PriorityQueue {
 		data = new SortedDictionary<int, Queue<SearchState>> ();
 	}
 
-	public void Add(SearchState s, int n)
+	override public void Add(SearchState s, int n)
 	{
 		if (data.ContainsKey (n)) {
 			data [n].Enqueue (s);
 		} else {
-			Queue<SearchState> q = new Queue<SearchState> ();
-			q.Enqueue (s);
-			data [n] = q;
+			Queue<SearchState> queue = new Queue<SearchState> ();
+			queue.Enqueue (s);
+			data [n] = queue;
 		}
 
 		size++;
 	}
 
-	public SearchState PopFirst()
+	override public SearchState PopFirst()
 	{
-		foreach (Queue<SearchState> q in data.Values) {
-			if (q.Count > 0) {
+		foreach (Queue<SearchState> queue in data.Values) {
+			if (queue.Count > 0) {
 				size--;
-				return q.Dequeue ();
+				return queue.Dequeue ();
 			}
 		}
 

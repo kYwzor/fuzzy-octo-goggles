@@ -5,8 +5,9 @@ using UnityEngine;
 public class AStarSearch : SearchAlgorithm {
 
 	public float div = 1;
-	private PriorityQueue priorityQueue;
-	public SearchAlgorithm.HeuristicChoice heuristic;
+	private PriorityHolder priorityHolder;
+	public PriorityChoice priority;
+	public HeuristicChoice heuristic;
     private SearchState currentState;
 
 	protected override void Begin () {
@@ -14,16 +15,19 @@ public class AStarSearch : SearchAlgorithm {
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
 		SearchState start = new SearchState (startNode, 0, GetHeuristic(startNode, div, heuristic));
-		priorityQueue = new PriorityQueue ();
-		priorityQueue.Add (start, (int) start.f);
+		if (priority == PriorityChoice.PriorityQueue)
+			priorityHolder = new PriorityQueue ();
+		else
+			priorityHolder = new PriorityStack ();
+		priorityHolder.Add (start, (int) start.f);
 
 	}
 
 	protected override void Step () {
 
-		if (priorityQueue.Count > 0)
+		if (priorityHolder.Count > 0)
 		{
-			currentState = priorityQueue.PopFirst ();
+			currentState = priorityHolder.PopFirst ();
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;
@@ -33,11 +37,11 @@ public class AStarSearch : SearchAlgorithm {
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
 					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc, div, heuristic), currentState);
-					priorityQueue.Add (new_node, (int)new_node.f);
+					priorityHolder.Add (new_node, (int)new_node.f);
 				}
 				// for energy
-				if ((ulong) priorityQueue.Count > maxListSize) {
-					maxListSize = (ulong) priorityQueue.Count;
+				if ((ulong) priorityHolder.Count > maxListSize) {
+					maxListSize = (ulong) priorityHolder.Count;
 				}
 			}
 		}
@@ -56,6 +60,8 @@ public class AStarSearch : SearchAlgorithm {
 
     protected override string getName()
     {
-        return "AStar";
+		if(priority == PriorityChoice.PriorityQueue)
+			return "AStarPQ";
+		return "AStarPS";
     }
 }

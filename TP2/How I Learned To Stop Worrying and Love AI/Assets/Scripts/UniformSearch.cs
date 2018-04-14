@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class UniformSearch: SearchAlgorithm {
 
-	private PriorityQueue priorityQueue;
+	private PriorityHolder priorityHolder;
     private SearchState currentState;
+	public PriorityChoice priority;
+
 
 
 	protected override void Begin () {
@@ -13,14 +15,19 @@ public class UniformSearch: SearchAlgorithm {
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
 		SearchState start = new SearchState (startNode, 0);
-		priorityQueue = new PriorityQueue();
-		priorityQueue.Add(start, 0);
+		if (priority == PriorityChoice.PriorityQueue)
+			priorityHolder = new PriorityQueue ();
+		else
+			priorityHolder = new PriorityStack ();
+		priorityHolder.Add (start, 0);
 		
 	}
 
     protected override string getName()
     {
-        return "UniformSearch";
+		if(priority == PriorityChoice.PriorityQueue)
+			return "UniformSearchPQ";
+		return "UniformSearchPS";
     }
 
     protected override string getExtra()
@@ -30,9 +37,9 @@ public class UniformSearch: SearchAlgorithm {
 
     protected override void Step () {
 		
-		if (priorityQueue.Count > 0)
+		if (priorityHolder.Count > 0)
 		{
-			SearchState currentState = priorityQueue.PopFirst();
+			currentState = priorityHolder.PopFirst();
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;
@@ -42,11 +49,11 @@ public class UniformSearch: SearchAlgorithm {
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
 					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, currentState);
-					priorityQueue.Add (new_node, (int)new_node.g);
+					priorityHolder.Add (new_node, (int)new_node.g);
 				}
 				// for energy
-				if ((ulong) priorityQueue.Count > maxListSize) {
-					maxListSize = (ulong) priorityQueue.Count;
+				if ((ulong) priorityHolder.Count > maxListSize) {
+					maxListSize = (ulong) priorityHolder.Count;
 				}
 			}
 		}

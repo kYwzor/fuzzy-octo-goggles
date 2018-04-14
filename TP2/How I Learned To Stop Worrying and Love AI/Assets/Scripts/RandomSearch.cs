@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomSearch : SearchAlgorithm {
 
-	private 	List<SearchState> openList;
+	private List<SearchState> openList;
     private SearchState currentState;
 
 

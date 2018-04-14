@@ -28,11 +28,10 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected bool foundPath = false;
 	protected bool running = false;
 	protected bool finished = false;
-    private int auxCost;
     protected TestWriter testWriter;
-    protected int seed;
 
 	public enum HeuristicChoice {Manhattan, ModifiedManhattan};
+	public enum PriorityChoice {PriorityQueue, PriorityStack};
 
 
 	public void StartRunning() {
@@ -104,7 +103,6 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 
 			SearchState state = solution;
 			pathCost = (int)solution.f;
-            auxCost = pathCost;
 			print ("Path cost " + pathCost);
 			while (state.parent != null) {
 				path.Insert (0, state.node);

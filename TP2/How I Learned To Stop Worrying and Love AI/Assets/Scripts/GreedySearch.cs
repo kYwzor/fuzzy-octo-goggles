@@ -5,26 +5,29 @@ using UnityEngine;
 public class GreedySearch : SearchAlgorithm {
 
 	public float div = 1;
-	private PriorityQueue priorityQueue;
-	public SearchAlgorithm.HeuristicChoice heuristic;
+	private PriorityHolder priorityHolder;
+	public PriorityChoice priority;
+	public HeuristicChoice heuristic;
     private SearchState currentState;
-
 
     protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
 		targetNode = GridMap.instance.NodeFromWorldPoint (targetPos);
 
 		SearchState start = new SearchState (startNode, 0);
-		priorityQueue = new PriorityQueue ();
-		priorityQueue.Add (start, 0);
+		if (priority == PriorityChoice.PriorityQueue)
+			priorityHolder = new PriorityQueue ();
+		else
+			priorityHolder = new PriorityStack ();
+		priorityHolder.Add (start, 0);
 
 	}
 
 	protected override void Step () {
 
-		if (priorityQueue.Count > 0)
+		if (priorityHolder.Count > 0)
 		{
-			currentState = priorityQueue.PopFirst ();
+			currentState = priorityHolder.PopFirst ();
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;
@@ -34,11 +37,11 @@ public class GreedySearch : SearchAlgorithm {
 			} else {
 				foreach (Node suc in GetNodeSucessors(currentState.node)) {
 					SearchState new_node = new SearchState(suc, suc.gCost + currentState.g, GetHeuristic(suc, div, heuristic), currentState);
-					priorityQueue.Add (new_node, (int)new_node.h);
+					priorityHolder.Add (new_node, (int)new_node.h);
 				}
 				// for energy
-				if ((ulong) priorityQueue.Count > maxListSize) {
-					maxListSize = (ulong) priorityQueue.Count;
+				if ((ulong) priorityHolder.Count > maxListSize) {
+					maxListSize = (ulong) priorityHolder.Count;
 				}
 			}
 		}
@@ -57,6 +60,8 @@ public class GreedySearch : SearchAlgorithm {
 
     protected override string getName()
     {
-        return "GreedySearch";
+		if(priority == PriorityChoice.PriorityQueue)
+			return "GreedyPQ";
+		return "GreedyPS";
     }
 }
