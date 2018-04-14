@@ -236,15 +236,17 @@ public class Agent : MonoBehaviour {
 			}
 		} else {
 			if (search.GetRunning ()) {
-				currentEnergyExpanded = totalEnergy - (int)( search.GetNumberOfNodesExpanded () / updateEnergyExpandedInterval);
-				currentForce = totalEnergy - ((int) search.GetMaxListSize() / updateForceInterval);
-					
-				if (currentEnergyExpanded <= 0 || currentForce <= 0 || search.declareDeath) {
+				currentEnergyExpanded = totalEnergy - (int)(search.GetNumberOfNodesExpanded () / updateEnergyExpandedInterval);
+				currentForce = totalEnergy - ((int)search.GetMaxListSize () / updateForceInterval);
+				if (currentEnergyExpanded <= 0 || currentForce <= 0) {
 					search.setRunning (false);
 					isDead = true;
 					MakeDead ((currentEnergyExpanded <= 0) ? Energies.Expanded : Energies.Force);
 
 				}
+			} else if (search.declareDeath) {
+				isDead = true;
+				MakeDead ((currentEnergyExpanded <= 0) ? Energies.Expanded : Energies.Force);
 			}
 		}
 		UpdateEnergyBars (healthForce, (int) currentForce, Color.blue);
