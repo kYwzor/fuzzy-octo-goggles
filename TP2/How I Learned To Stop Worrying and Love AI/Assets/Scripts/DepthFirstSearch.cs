@@ -46,7 +46,7 @@ public class DepthFirstSearch : SearchAlgorithm {
 		}
 	}
 
-	protected override string getName()
+	public override string getName()
 	{
 		return "DepthFirst";
 	}

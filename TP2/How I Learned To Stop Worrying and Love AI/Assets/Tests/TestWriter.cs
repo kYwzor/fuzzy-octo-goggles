@@ -4,34 +4,27 @@ using System.Text;
 
 public class TestWriter
 {
-    double lastWeight = -1;
-    public TestWriter()
+	static private string filename;
+
+    static public void Start(String filename)
     {
+		TestWriter.filename = filename;
+		File.AppendAllText (filename, "foundPath,weight,visited,expanded,maxListSize,depth,extra\n");
     }
 
-    public void writeResultLine(String filename, bool foundPath, double weight, int visited, int expanded, ulong maxListSize, int depth, String extra)
+    static public void writeResultLine(bool foundPath, double weight, int visited, int expanded, ulong maxListSize, int depth, String extra)
     {
-        if(weight != lastWeight)
-        {
-            lastWeight = weight;
-            //before your loop
-            StringBuilder csv = new StringBuilder();
+		string fs = foundPath.ToString ();
+        string ws = weight.ToString();
+        string vs = visited.ToString();
+        string es = expanded.ToString();
+        string ls = maxListSize.ToString();
+		string ds = depth.ToString();
 
-            //in your loop
-            String ws = weight.ToString();
-            String vs = visited.ToString();
-            String es = expanded.ToString();
-            String mls = maxListSize.ToString();
-			String dp = depth.ToString();
+		string newLine = String.Format("{0},{1},{2},{3},{4},{5},{6}\n", fs, ws, vs, es, ls, ds, extra);
+        Console.WriteLine("EXORS" + newLine);
 
-            //Suggestion made by KyleMit
-			String newLine = string.Format("{0},{1},{2},{3},{4},{5},{6}", filename, ws, vs, es, mls, dp, extra);
-            Console.WriteLine("EXORS" + newLine);
-            csv.AppendLine(newLine);
-
-            //after your loop
-            File.AppendAllText(filename, csv.ToString());
-        }
+		File.AppendAllText(filename, newLine);
     }
 
 }

@@ -81,12 +81,12 @@ public class SimulatedAnnealing : SearchAlgorithm {
 		return 1 + k * 0.0001;
 	}
 
-    protected override string getName()
+	public override string getName()
     {
         return "SimulatedAnnealing";
     }
 
-    protected override string getExtra()
+	public override string getExtra()
     {
         return seed.ToString();
     }

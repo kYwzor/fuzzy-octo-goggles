@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Agent : MonoBehaviour {
 
@@ -22,9 +23,8 @@ public class Agent : MonoBehaviour {
 	public int nodesExpanded = 0;
 	public int nodesVisited = 0;
 	public int pathCost = 0;
-    public bool autorun;
+    public bool autorun = false;
     public bool skipAnimations = false;
-    public bool nextScene = false;
 
 
 
@@ -48,6 +48,7 @@ public class Agent : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		search = GetSearchAlgorithm();
+		TestWriter.Start (SceneManager.GetActiveScene ().name + "_" + search.getName () + ".csv");
 		targets = GetAllTargets ();
 		targets.Sort (GridMap.SortByName);
 		UpdateStartTargetPositions ();
@@ -100,6 +101,7 @@ public class Agent : MonoBehaviour {
 				if (path == null) {
 					if (search.FoundPath ()) {
 						path = search.RetracePath ();
+						TestWriter.writeResultLine(search.FoundPath (), (int)search.Solution.f, search.numberOfVisited, search.numberOfExpandedNodes, search.maxListSize, search.currentState.depth, search.getExtra());
 						if (debugPath) {
 							
 							GridMap.instance.ColorNodes (path, agentColor);
@@ -126,7 +128,7 @@ public class Agent : MonoBehaviour {
 				}
                 if(targets.Count == 0 && search.Finished() && search.FoundPath() && path != null)
                 {
-                    nextScene = true;
+					TestSceneControl.ChangeScene ();
                 }
 			}
 			if (!isMoving) {
@@ -154,7 +156,6 @@ public class Agent : MonoBehaviour {
                 isAtTarget = true;
                 isMoving = false;
                 transform.position = path[path.Count - 1].worldPosition + new Vector3(0, 1f, 0);
-                path = null;
             }
         }
 	}
@@ -241,6 +242,7 @@ public class Agent : MonoBehaviour {
 				if (currentEnergyExpanded <= 0 || currentForce <= 0) {
 					search.setRunning (false);
 					isDead = true;
+					TestWriter.writeResultLine(false, -1, search.numberOfVisited, search.numberOfExpandedNodes, search.maxListSize, search.currentState.depth, search.getExtra());
 					MakeDead ((currentEnergyExpanded <= 0) ? Energies.Expanded : Energies.Force);
 
 				}
@@ -260,7 +262,7 @@ public class Agent : MonoBehaviour {
 			uniText.text += "expanded: " + nodesExpanded + " >= "+ search.maxNumberOfExpanded + "(maxNumberOfExpansions)";
 		else
 			uniText.text += "onlist: " + nodesOnList + " >= " + search.GetListSizeLimit() + "(GetListSizeLimit)";
-        nextScene = true;
+		TestSceneControl.ChangeScene ();
 	}
 
 	bool IsFullyLoaded() {

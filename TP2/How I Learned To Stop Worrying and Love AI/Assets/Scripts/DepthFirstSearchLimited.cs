@@ -50,7 +50,7 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
 		}
 	}
 
-	protected override string getName()
+	public override string getName()
 	{
 		return "DepthFirstSearchLimited";
 	}

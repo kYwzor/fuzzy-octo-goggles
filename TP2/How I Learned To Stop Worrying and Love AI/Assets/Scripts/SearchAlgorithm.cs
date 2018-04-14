@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public abstract class SearchAlgorithm : MonoBehaviour {
 	public int stepsPerFrame = 100;
@@ -28,8 +27,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected bool foundPath = false;
 	protected bool running = false;
 	protected bool finished = false;
-    protected TestWriter testWriter;
-	protected SearchState currentState;
+	[HideInInspector] public SearchState currentState;
 
 	public enum HeuristicChoice {Manhattan, ModifiedManhattan};
 	public enum PriorityChoice {PriorityQueue, PriorityStack};
@@ -44,7 +42,6 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 		numberOfExpandedNodes = 0;
 		numberOfVisited = 0;
 		pathCost = 0;
-        testWriter = new TestWriter();
 		// for debug purposes add all expanded nodes to this list
 		nodesVisited = new List<Node>();
 		maxListSize = 0;
@@ -60,7 +57,6 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 					Step ();
 					numberOfSteps++;
 					if (numberOfExpandedNodes > maxNumberOfExpanded || maxListSize > listSizeLimit) {
-						writeOutputLine(getName(), false, -1, numberOfVisited, numberOfExpandedNodes, maxListSize, currentState.depth, getExtra());
 						break;
 					}
 				} else {
@@ -94,8 +90,13 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 		return maxListSize;
 	}
 
+	public SearchState Solution {
+		get {
+			return this.solution;
+		}
+	}
+
 	public List<Node> RetracePath() {
-		writeOutputLine(getName(), foundPath, (int)solution.f, numberOfVisited, numberOfExpandedNodes, maxListSize, currentState.depth, getExtra());
 		path = null;
 		if (finished && foundPath) {
 			path = new List<Node> ();
@@ -172,10 +173,10 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	// These methods should be overriden on each specific search algorithm.
 	protected abstract void Begin ();
 	protected abstract void Step ();
-	protected virtual String getExtra (){
+	public virtual String getExtra (){
 		return "-";	// returns - if it's not overriden
 	}
-	protected abstract String getName ();
+	public abstract String getName ();
 
 	//NOTE: You have to implement this method if your algorithm requires an heuristic
 	protected virtual int GetHeuristic(Node currentNode, float div, HeuristicChoice choice) { 
@@ -184,10 +185,4 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 			return (int)manhattan;
 		return (int)(manhattan*(manhattan/div));
 	}
-
-    protected void writeOutputLine(String algorithmName, bool foundPath, double weight, int visited, int expanded, ulong maxListSize, int depth, String extra)
-    {
-        String sceneName = SceneManager.GetActiveScene().name;
-        testWriter.writeResultLine((sceneName + "_" + algorithmName + ".csv"), foundPath, weight, visited, expanded, maxListSize, depth, extra);
-    }
 }

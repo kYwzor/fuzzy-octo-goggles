@@ -46,7 +46,7 @@ public class BreadthFirstSearch : SearchAlgorithm {
 		}
 	}
 
-	protected override string getName()
+	public override string getName()
 	{
 		return "BreadthFirst";
 	}

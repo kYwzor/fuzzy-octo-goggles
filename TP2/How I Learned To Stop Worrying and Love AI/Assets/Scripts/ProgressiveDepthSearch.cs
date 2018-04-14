@@ -49,12 +49,12 @@ public class ProgressiveDepthSearch : SearchAlgorithm {
 		}
 	}
 
-	protected override string getName()
+	public override string getName()
 	{
 		return "ProgressiveDepthSearch";
 	}
 
-	protected override string getExtra()
+	public override string getExtra()
 	{
 		return depthLimit.ToString(); 
 	}

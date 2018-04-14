@@ -52,7 +52,7 @@ public class GreedySearch : SearchAlgorithm {
 
 	}
 
-    protected override string getName()
+	public override string getName()
     {
 		if(priority == PriorityChoice.PriorityQueue)
 			return "GreedyPQ";

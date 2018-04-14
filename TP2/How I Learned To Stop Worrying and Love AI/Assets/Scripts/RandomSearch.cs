@@ -50,7 +50,7 @@ public class RandomSearch : SearchAlgorithm {
 		}
 	}
 
-	protected override string getName()
+	public override string getName()
 	{
 		return "RandomSearch";
 	}
