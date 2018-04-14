@@ -458,7 +458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a9ce0b2bbfa4bba8b22f6507662b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lunaticMode: 1
   totalEnergy: 5
   currentForce: 0
   currentEnergyExpanded: 0
@@ -474,7 +473,8 @@ MonoBehaviour:
   nodesVisited: 0
   pathCost: 0
   autorun: 1
-  fullStop: 0
+  skipAnimations: 1
+  nextScene: 0
 --- !u!114 &114659410291889136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332496619897340}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
   m_Name: 

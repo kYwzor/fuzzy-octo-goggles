@@ -22,7 +22,6 @@ public class TestWriter
 		string ds = depth.ToString();
 
 		string newLine = String.Format("{0},{1},{2},{3},{4},{5},{6}\n", fs, ws, vs, es, ls, ds, extra);
-        Console.WriteLine("EXORS" + newLine);
 
 		File.AppendAllText(filename, newLine);
     }

@@ -18,7 +18,6 @@ public class BreadthFirstSearch : SearchAlgorithm {
 	}
 
     protected override void Step () {
-		
 		if (openQueue.Count > 0)
 		{
 			currentState = openQueue.Dequeue();
@@ -43,6 +42,7 @@ public class BreadthFirstSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
+            forceQuit = true;
 		}
 	}
 

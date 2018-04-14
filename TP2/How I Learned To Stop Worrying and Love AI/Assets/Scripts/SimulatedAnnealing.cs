@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SimulatedAnnealing : SearchAlgorithm {
 
 	public double temperature;
+    public double initialTemperature;
 	public int seed = 0;
     private int k = 0;
 	public float div = 1;
@@ -74,11 +75,12 @@ public class SimulatedAnnealing : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-		}
+            forceQuit = true;
+        }
 	}
 
 	private double scalingPolicy(int k){
-		return 1 + k * 0.0001;
+		return initialTemperature - k * 0.0001;
 	}
 
 	public override string getName()

@@ -48,6 +48,7 @@ public class AStarSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
+            forceQuit = true;
 		}
 
 	}

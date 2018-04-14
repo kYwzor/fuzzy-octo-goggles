@@ -48,6 +48,7 @@ public class UniformSearch: SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
+            forceQuit = true;
 		}
 
 	}

@@ -27,6 +27,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected bool foundPath = false;
 	protected bool running = false;
 	protected bool finished = false;
+    [HideInInspector] public bool forceQuit = false;
 	[HideInInspector] public SearchState currentState;
 
 	public enum HeuristicChoice {Manhattan, ModifiedManhattan};

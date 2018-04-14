@@ -126,7 +126,7 @@ public class Agent : MonoBehaviour {
 					moveToNext = false;
 					isAtTarget = false;
 				}
-                if(targets.Count == 0 && search.Finished() && search.FoundPath() && path != null)
+                if(((targets.Count == 0 && search.FoundPath() && path != null) || search.forceQuit) && search.Finished())
                 {
 					TestSceneControl.ChangeScene ();
                 }
@@ -239,7 +239,7 @@ public class Agent : MonoBehaviour {
 				currentEnergyExpanded = totalEnergy - (int)( search.GetNumberOfNodesExpanded () / updateEnergyExpandedInterval);
 				currentForce = totalEnergy - ((int) search.GetMaxListSize() / updateForceInterval);
 					
-				if (currentEnergyExpanded <= 0 || currentForce <= 0) {
+				if (currentEnergyExpanded <= 0 || currentForce <= 0 || search.forceQuit) {
 					search.setRunning (false);
 					isDead = true;
 					TestWriter.writeResultLine(false, -1, search.numberOfVisited, search.numberOfExpandedNodes, search.maxListSize, search.currentState.depth, search.getExtra());
