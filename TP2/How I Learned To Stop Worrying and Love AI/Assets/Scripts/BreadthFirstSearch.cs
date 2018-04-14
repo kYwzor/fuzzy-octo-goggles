@@ -42,7 +42,7 @@ public class BreadthFirstSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-            forceQuit = true;
+            declareDeath = true;
 		}
 	}
 

@@ -46,7 +46,7 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-            forceQuit = true;
+            declareDeath = true;
 		}
 	}
 

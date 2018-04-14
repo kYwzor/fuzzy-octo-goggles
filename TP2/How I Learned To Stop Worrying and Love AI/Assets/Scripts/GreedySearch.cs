@@ -48,7 +48,7 @@ public class GreedySearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-            forceQuit = true;
+            declareDeath = true;
 		}
 
 	}
