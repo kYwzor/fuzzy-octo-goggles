@@ -29,6 +29,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	protected bool running = false;
 	protected bool finished = false;
     protected TestWriter testWriter;
+	protected SearchState currentState;
 
 	public enum HeuristicChoice {Manhattan, ModifiedManhattan};
 	public enum PriorityChoice {PriorityQueue, PriorityStack};
@@ -59,7 +60,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 					Step ();
 					numberOfSteps++;
 					if (numberOfExpandedNodes > maxNumberOfExpanded || maxListSize > listSizeLimit) {
-                        writeOutputLine(getName(), false, 0, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
+						writeOutputLine(getName(), false, -1, numberOfVisited, numberOfExpandedNodes, maxListSize, currentState.depth, getExtra());
 						break;
 					}
 				} else {
@@ -94,7 +95,7 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	}
 
 	public List<Node> RetracePath() {
-        writeOutputLine(getName(), foundPath, (int)solution.f, numberOfVisited, numberOfExpandedNodes, maxListSize, getExtra());
+		writeOutputLine(getName(), foundPath, (int)solution.f, numberOfVisited, numberOfExpandedNodes, maxListSize, currentState.depth, getExtra());
 		path = null;
 		if (finished && foundPath) {
 			path = new List<Node> ();
@@ -171,7 +172,9 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 	// These methods should be overriden on each specific search algorithm.
 	protected abstract void Begin ();
 	protected abstract void Step ();
-    protected abstract String getExtra ();
+	protected virtual String getExtra (){
+		return "-";	// returns - if it's not overriden
+	}
 	protected abstract String getName ();
 
 	//NOTE: You have to implement this method if your algorithm requires an heuristic
@@ -182,9 +185,9 @@ public abstract class SearchAlgorithm : MonoBehaviour {
 		return (int)(manhattan*(manhattan/div));
 	}
 
-    protected void writeOutputLine(String algorithmName, bool foundPath, double weight, int visited, int expanded, ulong maxListSize, String seed)
+    protected void writeOutputLine(String algorithmName, bool foundPath, double weight, int visited, int expanded, ulong maxListSize, int depth, String extra)
     {
-                String sceneName = SceneManager.GetActiveScene().name;
-                testWriter.writeResultLine((sceneName + "_" + algorithmName + ".csv"), foundPath, weight, visited, expanded, maxListSize, seed);
+        String sceneName = SceneManager.GetActiveScene().name;
+        testWriter.writeResultLine((sceneName + "_" + algorithmName + ".csv"), foundPath, weight, visited, expanded, maxListSize, depth, extra);
     }
 }

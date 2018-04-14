@@ -8,7 +8,6 @@ public class GreedySearch : SearchAlgorithm {
 	private PriorityHolder priorityHolder;
 	public PriorityChoice priority;
 	public HeuristicChoice heuristic;
-    private SearchState currentState;
 
     protected override void Begin () {
 		startNode = GridMap.instance.NodeFromWorldPoint (startPos);
@@ -52,11 +51,6 @@ public class GreedySearch : SearchAlgorithm {
 		}
 
 	}
-
-    protected override string getExtra()
-    {
-        return currentState.depth.ToString();
-    }
 
     protected override string getName()
     {

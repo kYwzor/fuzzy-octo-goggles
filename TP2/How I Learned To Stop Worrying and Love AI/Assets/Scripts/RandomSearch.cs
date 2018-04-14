@@ -5,7 +5,6 @@ using UnityEngine;
 public class RandomSearch : SearchAlgorithm {
 
 	private List<SearchState> openList;
-    private SearchState currentState;
 
 
 
@@ -18,16 +17,6 @@ public class RandomSearch : SearchAlgorithm {
 		openList.Add(start);
 
 	}
-
-    protected override string getName()
-    {
-        return "RandomSearch";
-    }
-
-    protected override string getExtra()
-    {
-        return currentState.depth.ToString();
-    }
 
     protected override void Step () {
 		if (openList.Count > 0)
@@ -59,5 +48,10 @@ public class RandomSearch : SearchAlgorithm {
 			finished = true;
 			running = false;
 		}
+	}
+
+	protected override string getName()
+	{
+		return "RandomSearch";
 	}
 }

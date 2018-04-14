@@ -5,7 +5,6 @@ using UnityEngine;
 public class UniformSearch: SearchAlgorithm {
 
 	private PriorityHolder priorityHolder;
-    private SearchState currentState;
 	public PriorityChoice priority;
 
 
@@ -22,18 +21,6 @@ public class UniformSearch: SearchAlgorithm {
 		priorityHolder.Add (start, 0);
 		
 	}
-
-    protected override string getName()
-    {
-		if(priority == PriorityChoice.PriorityQueue)
-			return "UniformSearchPQ";
-		return "UniformSearchPS";
-    }
-
-    protected override string getExtra()
-    {
-        return currentState.depth.ToString();
-    }
 
     protected override void Step () {
 		
@@ -63,5 +50,12 @@ public class UniformSearch: SearchAlgorithm {
 			running = false;
 		}
 
+	}
+
+	protected override string getName()
+	{
+		if(priority == PriorityChoice.PriorityQueue)
+			return "UniformSearchPQ";
+		return "UniformSearchPS";
 	}
 }

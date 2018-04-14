@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SimulatedAnnealing : SearchAlgorithm {
 
-	SearchState currentState;
 	public double temperature;
 	public int seed = 0;
     private int k = 0;

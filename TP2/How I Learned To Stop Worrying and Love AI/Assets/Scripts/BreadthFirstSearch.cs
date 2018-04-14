@@ -5,7 +5,6 @@ using UnityEngine;
 public class BreadthFirstSearch : SearchAlgorithm {
 
 	private Queue<SearchState> openQueue;
-    private SearchState currentState;
 
 
     protected override void Begin () {
@@ -17,16 +16,6 @@ public class BreadthFirstSearch : SearchAlgorithm {
 		openQueue.Enqueue(start);
 		
 	}
-
-    protected override string getName()
-    {
-        return "BreadthFirst";
-    }
-
-    protected override string getExtra()
-    {
-        return currentState.depth.ToString();
-    }
 
     protected override void Step () {
 		
@@ -55,6 +44,10 @@ public class BreadthFirstSearch : SearchAlgorithm {
 			finished = true;
 			running = false;
 		}
+	}
 
+	protected override string getName()
+	{
+		return "BreadthFirst";
 	}
 }

@@ -18,20 +18,10 @@ public class ProgressiveDepthSearch : SearchAlgorithm {
 		depthLimit = 0;
 	}
 
-    protected override string getName()
-    {
-        return "ProgressiveDepthSearch";
-    }
-
-    protected override string getExtra()
-    {
-        return depthLimit.ToString(); 
-    }
-
     protected override void Step () {
 		if (openStack.Count > 0)
 		{
-			SearchState currentState = openStack.Pop();
+			currentState = openStack.Pop();
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;
@@ -57,5 +47,15 @@ public class ProgressiveDepthSearch : SearchAlgorithm {
 			openStack.Push(new SearchState (startNode, 0));
 			depthLimit++;
 		}
+	}
+
+	protected override string getName()
+	{
+		return "ProgressiveDepthSearch";
+	}
+
+	protected override string getExtra()
+	{
+		return depthLimit.ToString(); 
 	}
 }
