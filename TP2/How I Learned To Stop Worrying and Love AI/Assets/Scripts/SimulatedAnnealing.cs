@@ -80,8 +80,13 @@ public class SimulatedAnnealing : SearchAlgorithm {
 	}
 
 	private double scalingPolicy(int k){
-		return initialTemperature - k * 0.0001;
-	}
+        //return initialTemperature - k * 0.0001;
+
+        float mu = 0;
+        float sigma = 1000;
+        return initialTemperature * ((Math.Exp(-Math.Pow((k - mu), 2) / (2 * Math.Pow(sigma, 2)))) - 1);
+
+    }
 
 	public override string getName()
     {
