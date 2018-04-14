@@ -54,4 +54,9 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
 	{
 		return "DepthFirstSearchLimited";
 	}
+
+	public override string getExtra()
+	{
+		return depthLimit.ToString(); 
+	}
 }
