@@ -46,12 +46,17 @@ public class DepthFirstSearchLimited : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-            forceQuit = true;
+            declareDeath = true;
 		}
 	}
 
 	public override string getName()
 	{
 		return "DepthFirstSearchLimited";
+	}
+
+	public override string getExtra()
+	{
+		return depthLimit.ToString(); 
 	}
 }

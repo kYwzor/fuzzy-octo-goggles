@@ -43,7 +43,7 @@ public class DepthFirstSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-            forceQuit = true;
+            declareDeath = true;
 		}
 	}
 

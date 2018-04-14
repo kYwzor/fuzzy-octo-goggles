@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18507286}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
   m_Name: 
@@ -177,9 +177,9 @@ MonoBehaviour:
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  forceQuit: 0
-  temperature: 0.001
-  initialTemperature: 0.0001
+  declareDeath: 0
+  temperature: 0
+  initialTemperature: 1
   seed: 0
   div: 1
   heuristic: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  forceQuit: 0
+  declareDeath: 0
   div: 1
   priority: 0
   heuristic: 0
@@ -214,12 +214,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18507286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b1c66211013f246a86793a615cc33d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2652f86756c2f4f4fbedd6815d193b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 10000000
+  stepsPerFrame: 1
   pathCost: 0
   numberOfExpandedNodes: 0
   numberOfVisited: 0
@@ -229,5 +229,4 @@ MonoBehaviour:
   maxNumberOfVisited: 1000
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  forceQuit: 0
-  depthLimit: 2
+  declareDeath: 0

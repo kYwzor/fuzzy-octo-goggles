@@ -75,7 +75,7 @@ public class SimulatedAnnealing : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-            forceQuit = true;
+            declareDeath = true;
         }
 	}
 

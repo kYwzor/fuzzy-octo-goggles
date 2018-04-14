@@ -47,7 +47,7 @@ public class RandomSearch : SearchAlgorithm {
 		{
 			finished = true;
 			running = false;
-            forceQuit = true;
+            declareDeath = true;
 		}
 	}
 
