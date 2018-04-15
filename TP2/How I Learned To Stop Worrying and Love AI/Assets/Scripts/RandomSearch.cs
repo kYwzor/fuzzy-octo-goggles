@@ -15,16 +15,13 @@ public class RandomSearch : SearchAlgorithm {
 		SearchState start = new SearchState (startNode, 0);
 		openList = new List<SearchState> ();
 		openList.Add(start);
-
+		Random.InitState(System.DateTime.Now.Millisecond);
 	}
 
     protected override void Step () {
 		if (openList.Count > 0)
 		{
-			Random.InitState(System.DateTime.Now.Millisecond);
 			currentState = openList[Random.Range (0, openList.Count)];
-
-			openList.Remove (currentState);
 			VisitNode (currentState);
 			if (currentState.node == targetNode) {
 				solution = currentState;
