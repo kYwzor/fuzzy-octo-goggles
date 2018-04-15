@@ -1,0 +1,10 @@
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,80,22,72,0,12,0
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,156,46,157,0,26,1
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,374,81,278,0,56,2
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,114,36,125,0,22,3
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,191,51,178,0,30,4

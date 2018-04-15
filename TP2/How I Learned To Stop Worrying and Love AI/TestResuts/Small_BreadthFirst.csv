@@ -1,0 +1,4 @@
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,24,35990,124895,88907,10,-
+True,12,741,2433,1694,5,-
+True,8,108,321,215,4,-

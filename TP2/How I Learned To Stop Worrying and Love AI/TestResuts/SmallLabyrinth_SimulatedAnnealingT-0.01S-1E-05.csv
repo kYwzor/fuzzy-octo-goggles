@@ -1,0 +1,2 @@
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+False,-1,1000,2025,0,9,0

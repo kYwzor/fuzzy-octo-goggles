@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -123,8 +123,7 @@ GameObject:
   - component: {fileID: 18507288}
   - component: {fileID: 18507287}
   - component: {fileID: 18507289}
-  - component: {fileID: 18507290}
-  - component: {fileID: 18507291}
+  - component: {fileID: 18507293}
   m_Layer: 0
   m_Name: TestingController
   m_TagString: Untagged
@@ -167,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 10000000
+  stepsPerFrame: 1000000
   pathCost: 0
   numberOfExpandedNodes: 0
   numberOfVisited: 0
@@ -179,22 +178,23 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   declareDeath: 0
   temperature: 0
-  initialTemperature: 1
+  initialTemperature: 0.9
+  scalingAmount: 0.001
   seed: 0
   div: 1
   heuristic: 0
---- !u!114 &18507290
+--- !u!114 &18507293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18507286}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01182d1abbdc5ac4285e6103db79ba85, type: 3}
+  m_Script: {fileID: 11500000, guid: 114a1eea0f9a5a84cba508ec2d4cdb17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsPerFrame: 10000000
+  stepsPerFrame: 1000000
   pathCost: 0
   numberOfExpandedNodes: 0
   numberOfVisited: 0
@@ -205,28 +205,9 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
   declareDeath: 0
+  temperature: 0
+  initialTemperature: 0.9
+  scalingAmount: 0.0001
+  seed: 0
   div: 1
-  priority: 0
   heuristic: 0
---- !u!114 &18507291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 18507286}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2652f86756c2f4f4fbedd6815d193b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stepsPerFrame: 1
-  pathCost: 0
-  numberOfExpandedNodes: 0
-  numberOfVisited: 0
-  maxListSize: 0
-  listSizeLimit: 5000000
-  maxNumberOfExpanded: 5000000
-  maxNumberOfVisited: 1000
-  startPos: {x: 0, y: 0, z: 0}
-  targetPos: {x: 0, y: 0, z: 0}
-  declareDeath: 0

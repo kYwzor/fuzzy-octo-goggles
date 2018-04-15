@@ -1,0 +1,15 @@
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,1067,372,1136,0,209,0
+True,295,94,313,0,52,0
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,451,148,459,0,85,1
+True,868,314,911,0,174,1
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,184,61,176,0,39,2
+True,422,114,341,0,72,2
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,672,281,783,0,143,3
+True,514,155,479,0,88,3
+foundPath,weight,visited,expanded,maxListSize,depth,extra
+True,1867,691,2036,0,393,4
+True,474,135,398,0,78,4

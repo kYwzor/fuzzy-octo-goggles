@@ -34,6 +34,7 @@ public class SimulatedAnnealing : SearchAlgorithm {
                 finished = true;
                 running = false;
                 foundPath = true;
+                k = 0;
             }
             else
             {
@@ -61,7 +62,7 @@ public class SimulatedAnnealing : SearchAlgorithm {
 
 	public override string getName()
     {
-        return "SimulatedAnnealing";
+        return "SimulatedAnnealingT-" + initialTemperature.ToString() + "S-" + scalingAmount.ToString() ;
     }
 
 	public override string getExtra()

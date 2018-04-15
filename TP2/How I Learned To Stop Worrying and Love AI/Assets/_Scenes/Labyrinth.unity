@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427176, b: 0.5645241, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.5645232, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -735,6 +735,41 @@ Prefab:
     - target: {fileID: 4821824955017446, guid: fed3d405e91c546ab9b7160fbcd7dab2, type: 2}
       propertyPath: m_LocalPosition.z
       value: 3.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 114047705947961510, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928576442725276, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928576442725276, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: listSizeLimit
+      value: 5000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928576442725276, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: maxNumberOfExpanded
+      value: 5000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928576442725276, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: priority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928576442725276, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: heuristic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928576442725276, guid: fed3d405e91c546ab9b7160fbcd7dab2,
+        type: 2}
+      propertyPath: div
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fed3d405e91c546ab9b7160fbcd7dab2, type: 2}
