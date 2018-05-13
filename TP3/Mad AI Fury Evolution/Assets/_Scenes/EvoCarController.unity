@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0056d03b312437da07decae83af032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  populationSize: 100
+  populationSize: 20
   topology: 030000000a00000002000000
-  numGenerations: 10
+  numGenerations: 50
   generation: 0
   logFilename: 
   mutationProbability: 0.3

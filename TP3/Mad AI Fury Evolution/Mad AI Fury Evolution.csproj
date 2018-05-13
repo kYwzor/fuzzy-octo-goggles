@@ -322,6 +322,7 @@
     <Compile Include="Assets\Scripts\MetaHeuristic.cs" />
     <Compile Include="Assets\Scripts\NeuralNetwork.cs" />
     <Compile Include="Assets\Scripts\SelectionMethod.cs" />
+    <Compile Include="Assets\Scripts\TournamentSelection.cs" />
     <Compile Include="Assets\Scripts\Utils\BatchmodeConfig.cs" />
     <Compile Include="Assets\Scripts\Utils\Options.cs" />
   </ItemGroup>

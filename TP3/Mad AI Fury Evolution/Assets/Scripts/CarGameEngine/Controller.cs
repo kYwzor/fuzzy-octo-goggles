@@ -89,7 +89,7 @@ public class Controller : MonoBehaviour
 				prevDriveTime = driveTime;
 			}
 			// if distance is tiny we wrap up. This is used so my dudes don't get stuck
-			if ((deltaDistance <= 0.1 && driveTime > 10) || driveTime > 300) {
+			if ((deltaDistance <= 0.1 && driveTime > 10) || driveTime > 3000) {
 				Debug.Log("Distance: " + deltaDistance + "\nTime: " + driveTime);
 				wrapUp ();
 			}

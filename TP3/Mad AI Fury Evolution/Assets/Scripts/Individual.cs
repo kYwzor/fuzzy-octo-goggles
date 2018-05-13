@@ -71,4 +71,6 @@ public abstract class Individual {
 	public abstract void Mutate (float probability);
 	public abstract void Crossover (Individual partner, float probability);
 	public abstract Individual Clone ();
+
+	
 }
