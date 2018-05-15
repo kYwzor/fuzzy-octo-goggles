@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TournamentSelection : SelectionMethod{
-
-    public List<Individual> selectIndividuals(List<Individual> oldpop, int tournamentSize, float k){
+	public float k = 1;
+    public override List<Individual> selectIndividuals(List<Individual> oldpop, int tournamentSize){
 		float[] probs = new float[tournamentSize];
 		List<Individual> newPop = new List<Individual>();
 		for(int i = 0; i < tournamentSize; i++){
-			probs[i] = k * 	Mathf.Pow((1 -k ), i);
+			probs[i] = k * 	Mathf.Pow((1 - k), i);
 			if(i != 0) probs[i] += probs[i - 1];
+			Debug.Log("Prob " + i + " " + probs[i]);
 		}
 		for(int i = 0; i < oldpop.Count; i++){
 			List<Individual> candidates = new List<Individual>();
@@ -34,5 +35,6 @@ public class TournamentSelection : SelectionMethod{
 			}
 			newPop.Add(candidates[h]);
 		}
+		return newPop;
     }
 }

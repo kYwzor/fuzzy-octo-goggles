@@ -27,7 +27,18 @@ public abstract class Individual {
 		}
 	}
 
-	public bool Evaluated
+    public string getGenotypeString()
+    {
+        string aux = "";
+        foreach (var item in genotype)
+        {
+            aux += item.ToString();
+            aux += ", ";
+        }
+        return aux;
+    }
+
+    public bool Evaluated
 	{
 		get { return evaluated;}
 	}

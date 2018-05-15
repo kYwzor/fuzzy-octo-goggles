@@ -29,11 +29,11 @@ public class Controller : MonoBehaviour
 	public int numberOfLaps = 0;
 	public int numberOfCheckpoints = 0;
 	public float driveTime = 0;
-
 	public float prevDriveTime = 0;
-	public float prevDriveDistance= 0;
+	public Vector3 prevPosition;
 	public float deltaDistance= 0;
-	public float distanceTravelled = 0.0f;
+    public float deltaSum = 0;
+    public float distanceTravelled = 0.0f;
 	public float avgSpeed = 0.0f;
 	public float maxSpeed = 0.0f;
 	public float currentSpeed = 0.0f;
@@ -51,6 +51,7 @@ public class Controller : MonoBehaviour
 		frontSensorValues = new float[3];
 		startPos = m_Car.transform.position;
 		previousPos = startPos;
+		prevPosition = startPos;
 			
 	}
 
@@ -72,27 +73,28 @@ public class Controller : MonoBehaviour
 			// updating race status
 			updateRaceStatus ();
 
-			//PEDRO:
-			/*Old news
 			//if we do not move for too long, we stop the simulation
 			//or if we are simmulating for too long, we stop the simulation
 			// You can modify this to change the length of the simulation.
 			if ((currentDistance <= 0.1 && driveTime > 10) || driveTime > 300) {
 				wrapUp ();
 			}
-			*/
+			//PEDRO:
+			/*Old news
 			//Different rules so we prevent stuckage
 			//Every 10 seconds we check how much we have moved			
 			if(driveTime - prevDriveTime > 10){
-				deltaDistance =  currentDistance - prevDriveDistance;
-				prevDriveDistance = currentDistance;
+				deltaDistance =  Vector3.Distance(m_Car.transform.position, prevPosition);
+				deltaSum += deltaDistance;
+				prevPosition = m_Car.transform.position;
 				prevDriveTime = driveTime;
 			}
 			// if distance is tiny we wrap up. This is used so my dudes don't get stuck
-			if ((deltaDistance <= 0.1 && driveTime > 10) || driveTime > 3000) {
+			if ((deltaDistance <= 1 && driveTime > 10) || driveTime > 300) {
 				Debug.Log("Distance: " + deltaDistance + "\nTime: " + driveTime);
 				wrapUp ();
 			}
+			*/
 		}
 	}
 
@@ -162,7 +164,7 @@ public class Controller : MonoBehaviour
 
 	public float GetScore() {
 		// Fitness function. You should modify this.  
-		return  distanceTravelled / driveTime;
+		return  Mathf.Pow(driveTime * (numberOfCheckpoints + 1) / distanceToNextCheckpoint, numberOfLaps + 1);
 	}
 
 	public void wrapUp () {

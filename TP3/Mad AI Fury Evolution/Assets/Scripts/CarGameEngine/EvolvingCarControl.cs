@@ -65,7 +65,6 @@ public class EvolvingCarControl : MonoBehaviour {
 		foreach(MetaHeuristic tmp in metaengines){
 			if(tmp.enabled){
 				metaengine = tmp;
-
 				metaengine.InitPopulation();
 				break;
 			}

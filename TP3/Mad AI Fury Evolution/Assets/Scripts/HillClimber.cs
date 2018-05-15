@@ -8,7 +8,6 @@ public class HillClimber : MetaHeuristic
 
 	public override void InitPopulation(){
 		population = new List<Individual> ();
-		// jncor 
 		while (population.Count < populationSize) {
 			HillClimberIndividual new_ind= new HillClimberIndividual (topology);
 			new_ind.Initialize ();
