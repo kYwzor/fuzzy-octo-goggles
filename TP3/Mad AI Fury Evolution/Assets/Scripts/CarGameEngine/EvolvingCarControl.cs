@@ -195,8 +195,8 @@ public class EvolvingCarControl : MonoBehaviour {
 		infoText.text = "Best Individual Simulation. Fitness:"+metaengine.overallBest.Fitness;
 		// show best.. in loop
 		if (!simulating) {
-			Debug.Log (metaengine.overallBest.ToString ());
-			Debug.Log ("best fitness !" + metaengine.overallBest.Fitness);
+			//Debug.Log (metaengine.overallBest.ToString ());
+			//Debug.Log ("best fitness !" + metaengine.overallBest.Fitness);
 			SimulationInfo info = createSimulation (0, new Rect (0.0f, 0.0f, 1f, 1f), 0);
 			info.playerc.neuralController = metaengine.overallBest.getIndividualController ();
 			info.playerc.running = true;

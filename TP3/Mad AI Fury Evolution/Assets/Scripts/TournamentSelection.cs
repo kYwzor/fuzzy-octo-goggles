@@ -10,7 +10,7 @@ public class TournamentSelection : SelectionMethod{
 		for(int i = 0; i < tournamentSize; i++){
 			probs[i] = k * 	Mathf.Pow((1 - k), i);
 			if(i != 0) probs[i] += probs[i - 1];
-			Debug.Log("Prob " + i + " " + probs[i]);
+			//Debug.Log("Prob " + i + " " + probs[i]);
 		}
 		for(int i = 0; i < oldpop.Count; i++){
 			List<Individual> candidates = new List<Individual>();

@@ -77,8 +77,8 @@ public abstract class MetaHeuristic : MonoBehaviour
 		float populationBest = GenerationBest.Fitness;
 		best = overallBest.ToString();
 		report +=  string.Format("{0},{1},{2},{3}\n", generation,populationBest, PopAvg, overallBest.Fitness);
-		Debug.Log (best);
-		Debug.Log (report);
+		//Debug.Log (best);
+		//Debug.Log (report);
 	}
 
 	private void writeToFile(string path, string data) {
@@ -101,7 +101,7 @@ public abstract class MetaHeuristic : MonoBehaviour
 			dumpOverallBest(string.Format ("Best_{0}.dat", logFilename));
 		}
 
-		Debug.Log (report);
+		//Debug.Log (report);
 	}
 
 	public void dumpOverallBest(string path) {

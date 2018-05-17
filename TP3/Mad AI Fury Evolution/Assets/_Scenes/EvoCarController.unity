@@ -167,7 +167,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 12471513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f0056d03b312437da07decae83af032, type: 3}
   m_Name: 
@@ -184,21 +184,22 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 12471513}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed4542b128da440e8b6b5a64d24ac721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  populationSize: 26
+  populationSize: 50
   topology: 030000000a00000002000000
-  numGenerations: 10
+  numGenerations: 50
   generation: 0
   logFilename: 
-  mutationProbability: 0.05
-  crossoverProbability: 0.05
+  mutationProbability: 0.025
+  crossoverProbability: 0.9
+  crossoverPoints: 2
   k: 0.9
-  tournamentSize: 4
-  elitist: 0
+  tournamentSize: 3
+  elitist: 2
 --- !u!1 &388778777
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,7 +80,7 @@ public class NeuralNetwork {
 	{
 		
 		if (inputs.Length != parameters [0]) {
-			Debug.Log ("Input lenght does not match the number of neurons in the input layer!");
+			//Debug.Log ("Input lenght does not match the number of neurons in the input layer!");
 			return null;
 		}
 

@@ -34,9 +34,13 @@ public class Controller : MonoBehaviour
 	public float deltaDistance= 0;
     public float deltaSum = 0;
     public float distanceTravelled = 0.0f;
+    public float maxCheckpointDistance = 0.0f;
+    public int prevCheckPoints = 0;
+    public float prevCheckDistance = 0f;
 	public float avgSpeed = 0.0f;
 	public float maxSpeed = 0.0f;
 	public float currentSpeed = 0.0f;
+    public float fitCheck = 0.0f;
 	public float distanceToNextCheckpoint = 0.0f;
 	public float distanceToStartingPoint = 0.0f;
 	public float currentDistance = 0.0f;
@@ -52,6 +56,7 @@ public class Controller : MonoBehaviour
 		startPos = m_Car.transform.position;
 		previousPos = startPos;
 		prevPosition = startPos;
+        prevCheckDistance = 10000f;
 			
 	}
 
@@ -76,27 +81,42 @@ public class Controller : MonoBehaviour
 			//if we do not move for too long, we stop the simulation
 			//or if we are simmulating for too long, we stop the simulation
 			// You can modify this to change the length of the simulation.
-			if ((currentDistance <= 0.1 && driveTime > 10) || driveTime > 300) {
-				wrapUp ();
-			}
-			//PEDRO:
-			/*Old news
-			//Different rules so we prevent stuckage
-			//Every 10 seconds we check how much we have moved			
-			if(driveTime - prevDriveTime > 10){
-				deltaDistance =  Vector3.Distance(m_Car.transform.position, prevPosition);
-				deltaSum += deltaDistance;
-				prevPosition = m_Car.transform.position;
-				prevDriveTime = driveTime;
-			}
-			// if distance is tiny we wrap up. This is used so my dudes don't get stuck
-			if ((deltaDistance <= 1 && driveTime > 10) || driveTime > 300) {
-				Debug.Log("Distance: " + deltaDistance + "\nTime: " + driveTime);
-				wrapUp ();
-			}
-			*/
-		}
-	}
+      
+			if ((currentDistance <= 0.1 && driveTime > 10) || driveTime > 150) {
+                wrapUp();
+            }
+
+            if (maxCheckpointDistance < distanceToNextCheckpoint) maxCheckpointDistance = distanceToNextCheckpoint;
+            if (driveTime - prevDriveTime > 5)
+            {
+                prevDriveTime = driveTime;
+                    Debug.Log("Previous: " + prevCheckDistance + " " + prevCheckPoints +  " vs Current: " + distanceToNextCheckpoint + " " + numberOfCheckpoints);
+                if (distanceToNextCheckpoint > prevCheckDistance && prevCheckPoints >= numberOfCheckpoints)
+                    wrapUp();
+                else
+                {
+                    prevCheckDistance = distanceToNextCheckpoint;
+                    prevCheckPoints = numberOfCheckpoints;
+                }
+            }
+            //PEDRO:
+            /*Old news
+            //Different rules so we prevent stuckage
+            //Every 10 seconds we check how much we have moved			
+            if(driveTime - prevDriveTime > 10){
+                deltaDistance =  Vector3.Distance(m_Car.transform.position, prevPosition);
+                deltaSum += deltaDistance;
+                prevPosition = m_Car.transform.position;
+                prevDriveTime = driveTime;
+            }
+            // if distance is tiny we wrap up. This is used so my dudes don't get stuck
+            if ((deltaDistance <= 1 && driveTime > 10) || driveTime > 300) {
+                Debug.Log("Distance: " + deltaDistance + "\nTime: " + driveTime);
+                wrapUp ();
+            }
+            */
+        }
+    }
 
 	public void SensorHandling(){
 		 RaycastHit hit;
@@ -163,8 +183,10 @@ public class Controller : MonoBehaviour
 	}
 
 	public float GetScore() {
-		// Fitness function. You should modify this.  
-		return  Mathf.Pow(driveTime * (numberOfCheckpoints + 1) / distanceToNextCheckpoint, numberOfLaps + 1);
+        // Fitness function. You should modify this.  
+        return driveTime * distanceTravelled / distanceToNextCheckpoint + 10000 * (numberOfLaps + numberOfCheckpoints);
+        //experimentar average speed
+        //return Mathf.Pow((numberOfCheckpoints + 1) * maxSpeed * driveTime * maxCheckpointDistance  / (distanceToNextCheckpoint + 1), numberOfLaps + 1);
 	}
 
 	public void wrapUp () {
