@@ -25,6 +25,7 @@ public class GeneticAlgorithm : MetaHeuristic {
 
 	//The Step function assumes that the fitness values of all the individuals in the population have been calculated.
 	public override void Step() {
+		updateReport();
 		//You should implement the code runs in each generation here
         /*Debug.Log("Population:");
         foreach(var i in population)
