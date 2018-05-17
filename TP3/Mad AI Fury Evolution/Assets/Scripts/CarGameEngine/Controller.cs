@@ -35,7 +35,7 @@ public class Controller : MonoBehaviour
     public float deltaSum = 0;
     public float distanceTravelled = 0.0f;
     public float maxCheckpointDistance = 0.0f;
-    public int prevCheckPoints = 0;
+    public int prevCheckPoints = -1;
     public float prevCheckDistance = 0f;
 	public float avgSpeed = 0.0f;
 	public float maxSpeed = 0.0f;
@@ -44,6 +44,7 @@ public class Controller : MonoBehaviour
 	public float distanceToNextCheckpoint = 0.0f;
 	public float distanceToStartingPoint = 0.0f;
 	public float currentDistance = 0.0f;
+    public float totalDistanceToCheckpoint = 0;
 	//
 
 	public NeuralNetwork neuralController;
@@ -82,15 +83,21 @@ public class Controller : MonoBehaviour
 			//or if we are simmulating for too long, we stop the simulation
 			// You can modify this to change the length of the simulation.
       
+            if(prevCheckPoints < numberOfCheckpoints)
+            {
+                totalDistanceToCheckpoint = distanceToNextCheckpoint;
+                prevCheckPoints = numberOfCheckpoints;
+            }
 			if ((currentDistance <= 0.1 && driveTime > 10) || driveTime > 150) {
                 wrapUp();
             }
 
+            /*
             if (maxCheckpointDistance < distanceToNextCheckpoint) maxCheckpointDistance = distanceToNextCheckpoint;
             if (driveTime - prevDriveTime > 5)
             {
                 prevDriveTime = driveTime;
-                    Debug.Log("Previous: " + prevCheckDistance + " " + prevCheckPoints +  " vs Current: " + distanceToNextCheckpoint + " " + numberOfCheckpoints);
+                    //Debug.Log("Previous: " + prevCheckDistance + " " + prevCheckPoints +  " vs Current: " + distanceToNextCheckpoint + " " + numberOfCheckpoints);
                 if (distanceToNextCheckpoint > prevCheckDistance && prevCheckPoints >= numberOfCheckpoints)
                     wrapUp();
                 else
@@ -99,6 +106,7 @@ public class Controller : MonoBehaviour
                     prevCheckPoints = numberOfCheckpoints;
                 }
             }
+            */
             //PEDRO:
             /*Old news
             //Different rules so we prevent stuckage
@@ -184,7 +192,29 @@ public class Controller : MonoBehaviour
 
 	public float GetScore() {
         // Fitness function. You should modify this.  
-        return driveTime * distanceTravelled / distanceToNextCheckpoint + 10000 * (numberOfLaps + numberOfCheckpoints);
+        //Se pudermos aumentar o range usar isto
+        float sensorDiff = Mathf.Abs(frontSensorValues[1] - frontSensorValues[2]);
+        Debug.Log("=====");
+        Debug.Log("Number of Checkpoints: " + numberOfCheckpoints);
+        Debug.Log("Total Distance To Checkpoint: " + totalDistanceToCheckpoint);
+        Debug.Log("Distance to next checkpoint: " + distanceToNextCheckpoint);
+        Debug.Log("-----");
+        Debug.Log("Average speed: " + avgSpeed);
+        Debug.Log("Rate: " + (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)));
+        if(avgSpeed < 0 && (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) < 0)
+        {
+
+        Debug.Log("Fitness: " + -((numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint))) * avgSpeed);
+        Debug.Log("=====");
+        return  -(numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) * avgSpeed; 
+        }
+        else
+        {
+        Debug.Log("Fitness: " + ((numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint))) * avgSpeed);
+        Debug.Log("=====");
+            
+        return  (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) * avgSpeed; 
+        }
         //experimentar average speed
         //return Mathf.Pow((numberOfCheckpoints + 1) * maxSpeed * driveTime * maxCheckpointDistance  / (distanceToNextCheckpoint + 1), numberOfLaps + 1);
 	}
