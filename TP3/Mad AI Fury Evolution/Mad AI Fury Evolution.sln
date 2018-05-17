@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mad AI Fury Evolution", "Mad AI Fury Evolution.csproj", "{F909E3BC-E189-50C3-1663-6C5DB488DA66}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mad AI Fury Evolution.Plugins", "Mad AI Fury Evolution.Plugins.csproj", "{09964150-D1EE-72D6-BF29-4950EE209C90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mad AI Fury Evolution", "Mad AI Fury Evolution.csproj", "{F909E3BC-E189-50C3-1663-6C5DB488DA66}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mad AI Fury Evolution.Editor.Plugins", "Mad AI Fury Evolution.Editor.Plugins.csproj", "{C98FA7D6-DF8C-2FD2-0705-56DF526AA84B}"
 EndProject
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09964150-D1EE-72D6-BF29-4950EE209C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09964150-D1EE-72D6-BF29-4950EE209C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09964150-D1EE-72D6-BF29-4950EE209C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09964150-D1EE-72D6-BF29-4950EE209C90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F909E3BC-E189-50C3-1663-6C5DB488DA66}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C98FA7D6-DF8C-2FD2-0705-56DF526AA84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C98FA7D6-DF8C-2FD2-0705-56DF526AA84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98FA7D6-DF8C-2FD2-0705-56DF526AA84B}.Release|Any CPU.ActiveCfg = Release|Any CPU

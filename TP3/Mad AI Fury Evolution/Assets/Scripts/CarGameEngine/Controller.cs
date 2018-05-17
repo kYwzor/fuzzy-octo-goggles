@@ -44,7 +44,7 @@ public class Controller : MonoBehaviour
 	public float distanceToNextCheckpoint = 0.0f;
 	public float distanceToStartingPoint = 0.0f;
 	public float currentDistance = 0.0f;
-    public float totalDistanceToCheckpoint = 0;
+    public float totalDistanceToCheckpoint = 1;
 	//
 
 	public NeuralNetwork neuralController;
@@ -83,11 +83,12 @@ public class Controller : MonoBehaviour
 			//or if we are simmulating for too long, we stop the simulation
 			// You can modify this to change the length of the simulation.
       
-            if(prevCheckPoints < numberOfCheckpoints)
+            if(prevCheckPoints < numberOfCheckpoints && distanceToNextCheckpoint != 0)
             {
                 totalDistanceToCheckpoint = distanceToNextCheckpoint;
                 prevCheckPoints = numberOfCheckpoints;
             }
+
 			if ((currentDistance <= 0.1 && driveTime > 10) || driveTime > 150) {
                 wrapUp();
             }
@@ -201,23 +202,20 @@ public class Controller : MonoBehaviour
         Debug.Log("-----");
         Debug.Log("Average speed: " + avgSpeed);
         Debug.Log("Rate: " + (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)));
-        if(avgSpeed < 0 && (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) < 0)
+        if (avgSpeed < 0 || totalDistanceToCheckpoint == 0)
         {
-
-        Debug.Log("Fitness: " + -((numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint))) * avgSpeed);
-        Debug.Log("=====");
-        return  -(numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) * avgSpeed; 
+            return -1;
         }
         else
         {
-        Debug.Log("Fitness: " + ((numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint))) * avgSpeed);
-        Debug.Log("=====");
-            
-        return  (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) * avgSpeed; 
+            Debug.Log("Fitness: " + ((numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint))) * avgSpeed);
+            Debug.Log("=====");
+
+            return (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) * avgSpeed;
         }
         //experimentar average speed
         //return Mathf.Pow((numberOfCheckpoints + 1) * maxSpeed * driveTime * maxCheckpointDistance  / (distanceToNextCheckpoint + 1), numberOfLaps + 1);
-	}
+    }
 
 	public void wrapUp () {
 		avgSpeed = avgSpeed / driveTime;
