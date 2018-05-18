@@ -160,33 +160,14 @@ public class Controller : MonoBehaviour
 	}
 
 	public float GetScore() {
-        // Fitness function. You should modify this.  
-        //Se pudermos aumentar o range usar isto
-        //float sensorDiff = Mathf.Abs(frontSensorValues[1] - frontSensorValues[2]);
-		/*
-        Debug.Log("=====");
-        Debug.Log("Number of Checkpoints: " + numberOfCheckpoints);
-        Debug.Log("Total Distance To Checkpoint: " + totalDistanceToCheckpoint);
-        Debug.Log("Distance to next checkpoint: " + distanceToNextCheckpoint);
-        Debug.Log("-----");
-        Debug.Log("Average speed: " + avgSpeed);
-        Debug.Log("Rate: " + (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)));
-		*/
-        if (avgSpeed < 0 || totalDistanceToCheckpoint == 0)
-        {
-            return -1;
-        }
-        else
-        {
-			/*
-            Debug.Log("Fitness: " + ((numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint))) * avgSpeed);
-            Debug.Log("=====");
-			*/
+		//Fitness original
+		//return  driveTime * distanceTravelled;
 
+		//Fitness melhorada
+        if (avgSpeed < 0 || totalDistanceToCheckpoint == 0)
+            return -1;
+        else
             return (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) * avgSpeed;
-        }
-        //experimentar average speed
-        //return Mathf.Pow((numberOfCheckpoints + 1) * maxSpeed * driveTime * maxCheckpointDistance  / (distanceToNextCheckpoint + 1), numberOfLaps + 1);
     }
 
 	public void wrapUp () {
