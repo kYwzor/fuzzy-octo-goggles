@@ -65,7 +65,7 @@ public class ValidateCarControl : MonoBehaviour {
 			info.playerc.neuralController = bestController;
 			info.playerc.running = true;
 			bestSimulation = info.sim;
-			Time.timeScale = 6;
+			Time.timeScale = 24;
 			simulating = true;
 
 		} else if (simulating) {

@@ -66,7 +66,7 @@ public class Controller : MonoBehaviour
 	{
 		if (running) {
 			//TODO: I think we can use this to speed things up
-			Time.timeScale = 6;	
+			Time.timeScale = 20;	
 			// updating sensors
 			SensorHandling ();
 
@@ -194,7 +194,7 @@ public class Controller : MonoBehaviour
 	public float GetScore() {
         // Fitness function. You should modify this.  
         //Se pudermos aumentar o range usar isto
-        float sensorDiff = Mathf.Abs(frontSensorValues[1] - frontSensorValues[2]);
+        //float sensorDiff = Mathf.Abs(frontSensorValues[1] - frontSensorValues[2]);
 		/*
         Debug.Log("=====");
         Debug.Log("Number of Checkpoints: " + numberOfCheckpoints);

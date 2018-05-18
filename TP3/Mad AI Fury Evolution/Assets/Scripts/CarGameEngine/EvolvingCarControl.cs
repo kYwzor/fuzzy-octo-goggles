@@ -89,7 +89,7 @@ public class EvolvingCarControl : MonoBehaviour {
 			start_x += spacing;
 		}
 			
-		Time.timeScale = 1.0f;
+		Time.timeScale = 24;
 	}
 
 	private SimulationInfo createSimulation(int sim_i, Rect location, int indiv_i)
@@ -202,7 +202,7 @@ public class EvolvingCarControl : MonoBehaviour {
 			info.playerc.running = true;
 			bestSimulation = info.sim;
 
-			Time.timeScale = 6;
+			Time.timeScale = 24;
 			simulating = true;
 
 		} else if (simulating) {
