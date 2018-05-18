@@ -1430,7 +1430,7 @@ Transform:
   - {fileID: 4016973195849262}
   - {fileID: 4054740267604406}
   m_Father: {fileID: 4617679685090968}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4070045681572436
 Transform:
@@ -1486,7 +1486,7 @@ Transform:
   - {fileID: 4520207658424928}
   - {fileID: 4386476894393236}
   m_Father: {fileID: 4617679685090968}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4113877683883342
 Transform:
@@ -1654,7 +1654,7 @@ Transform:
   - {fileID: 4051111968113642}
   - {fileID: 4134510573473694}
   m_Father: {fileID: 4617679685090968}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!4 &4295263046903970
 Transform:
@@ -1900,12 +1900,12 @@ Transform:
   m_LocalPosition: {x: 167.14587, y: -0.9139824, z: 158.66138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4287479940561204}
   - {fileID: 4881037415294770}
   - {fileID: 4797358363214616}
   - {fileID: 4987576620053244}
   - {fileID: 4071756884284330}
   - {fileID: 4060038382390434}
+  - {fileID: 4287479940561204}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2050,7 +2050,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4617679685090968}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4804497312705600
 Transform:
@@ -2171,7 +2171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4617679685090968}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4920814937675548
 Transform:
@@ -2275,7 +2275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4617679685090968}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4991941499056132
 Transform:
@@ -4975,6 +4975,7 @@ MonoBehaviour:
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 20000
+  isReversing: 0
 --- !u!114 &114147654241218714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5086,8 +5087,10 @@ MonoBehaviour:
   distanceTravelled: 0
   avgSpeed: 0
   maxSpeed: 0
+  currentSpeed: 0
   distanceToNextCheckpoint: 0
   distanceToStartingPoint: 0
+  currentDistance: 0
   neuralController:
     parameters: 
     networkSize: 0

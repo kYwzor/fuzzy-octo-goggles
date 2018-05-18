@@ -81,8 +81,8 @@ public class GeneticAlgorithm : MetaHeuristic {
         }
         population = newPop;
 		generation++;
-        Debug.Log("Generation: " + generation);
-        Debug.Log("Generation Best: " + GenerationBest.Fitness);
+        //Debug.Log("Generation: " + generation);
+        //Debug.Log("Generation Best: " + GenerationBest.Fitness);
     }
 
 }

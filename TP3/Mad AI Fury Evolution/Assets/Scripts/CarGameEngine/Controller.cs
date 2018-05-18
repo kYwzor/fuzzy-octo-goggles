@@ -195,6 +195,7 @@ public class Controller : MonoBehaviour
         // Fitness function. You should modify this.  
         //Se pudermos aumentar o range usar isto
         float sensorDiff = Mathf.Abs(frontSensorValues[1] - frontSensorValues[2]);
+		/*
         Debug.Log("=====");
         Debug.Log("Number of Checkpoints: " + numberOfCheckpoints);
         Debug.Log("Total Distance To Checkpoint: " + totalDistanceToCheckpoint);
@@ -202,14 +203,17 @@ public class Controller : MonoBehaviour
         Debug.Log("-----");
         Debug.Log("Average speed: " + avgSpeed);
         Debug.Log("Rate: " + (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)));
+		*/
         if (avgSpeed < 0 || totalDistanceToCheckpoint == 0)
         {
             return -1;
         }
         else
         {
+			/*
             Debug.Log("Fitness: " + ((numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint))) * avgSpeed);
             Debug.Log("=====");
+			*/
 
             return (numberOfCheckpoints + ((totalDistanceToCheckpoint - distanceToNextCheckpoint) / totalDistanceToCheckpoint)) * avgSpeed;
         }
