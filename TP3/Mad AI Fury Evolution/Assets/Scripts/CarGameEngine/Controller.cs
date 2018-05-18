@@ -66,7 +66,7 @@ public class Controller : MonoBehaviour
 	{
 		if (running) {
 			//TODO: I think we can use this to speed things up
-			Time.timeScale = 20;	
+			Time.timeScale = 24;	
 			// updating sensors
 			SensorHandling ();
 
