@@ -66,7 +66,7 @@ public class Controller : MonoBehaviour
 	{
 		if (running) {
 			//TODO: I think we can use this to speed things up
-			Time.timeScale = 24;	
+			Time.timeScale = 12;	
 			// updating sensors
 			SensorHandling ();
 
@@ -92,38 +92,6 @@ public class Controller : MonoBehaviour
 			if ((currentDistance <= 0.1 && driveTime > 10) || driveTime > 150) {
                 wrapUp();
             }
-
-            /*
-            if (maxCheckpointDistance < distanceToNextCheckpoint) maxCheckpointDistance = distanceToNextCheckpoint;
-            if (driveTime - prevDriveTime > 5)
-            {
-                prevDriveTime = driveTime;
-                    //Debug.Log("Previous: " + prevCheckDistance + " " + prevCheckPoints +  " vs Current: " + distanceToNextCheckpoint + " " + numberOfCheckpoints);
-                if (distanceToNextCheckpoint > prevCheckDistance && prevCheckPoints >= numberOfCheckpoints)
-                    wrapUp();
-                else
-                {
-                    prevCheckDistance = distanceToNextCheckpoint;
-                    prevCheckPoints = numberOfCheckpoints;
-                }
-            }
-            */
-            //PEDRO:
-            /*Old news
-            //Different rules so we prevent stuckage
-            //Every 10 seconds we check how much we have moved			
-            if(driveTime - prevDriveTime > 10){
-                deltaDistance =  Vector3.Distance(m_Car.transform.position, prevPosition);
-                deltaSum += deltaDistance;
-                prevPosition = m_Car.transform.position;
-                prevDriveTime = driveTime;
-            }
-            // if distance is tiny we wrap up. This is used so my dudes don't get stuck
-            if ((deltaDistance <= 1 && driveTime > 10) || driveTime > 300) {
-                Debug.Log("Distance: " + deltaDistance + "\nTime: " + driveTime);
-                wrapUp ();
-            }
-            */
         }
     }
 

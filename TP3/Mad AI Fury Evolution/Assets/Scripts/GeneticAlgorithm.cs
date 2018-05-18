@@ -7,7 +7,6 @@ public class GeneticAlgorithm : MetaHeuristic {
 	public float crossoverProbability;
     public int crossoverPoints;
 
-	public float k;
 	public int tournamentSize;
 	public int elitist;
 
@@ -26,21 +25,8 @@ public class GeneticAlgorithm : MetaHeuristic {
 	//The Step function assumes that the fitness values of all the individuals in the population have been calculated.
 	public override void Step() {
 		updateReport();
-		//You should implement the code runs in each generation here
-        /*Debug.Log("Population:");
-        foreach(var i in population)
-        {
-            Debug.Log(i.getGenotypeString());
-        }
-        */
 		List<Individual> progenitors = selection.selectIndividuals(population, tournamentSize);
-        /*
-        Debug.Log("Progenitors:");
-        foreach(var i in progenitors)
-        {
-            Debug.Log(i.getGenotypeString());
-        }
-        */
+
 		List<Individual> newPop = new List<Individual>();
 		for(int i = 0; i < populationSize; i+=2)	{
 			Individual individual1 = progenitors[i].Clone();
@@ -52,13 +38,6 @@ public class GeneticAlgorithm : MetaHeuristic {
 			newPop.Add(individual1);
 			newPop.Add(individual2);
 		}
-        /*
-        Debug.Log("New population:");
-        foreach(var i in newPop)
-        {
-            Debug.Log(i.getGenotypeString());
-        }
-        */
         //Sort por fitness decrescente
         population.Sort(delegate (Individual x, Individual y) {
                 if (x.Fitness > y.Fitness)
